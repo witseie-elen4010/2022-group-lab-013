@@ -5,3 +5,4 @@ Title of application: Guessle
 Names of group members:
 Ryan Ka Kit Leong
 Hyla Fourie
+Cynthia Kijjambu
