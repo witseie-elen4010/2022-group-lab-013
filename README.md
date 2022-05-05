@@ -7,3 +7,4 @@ Ryan Ka Kit Leong
 Hyla Fourie
 Cynthia Kijjambu
 Keowa Pretorius
+Tshireletso Rasemana
