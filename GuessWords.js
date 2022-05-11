@@ -51,8 +51,21 @@ class Turn {
     else
     {
     return false;
-    
     }
+    }
+
+    CorrectRow(x)
+    {
+        if(x==this.RemainingTurns-1)
+        {
+        
+            return true;
+        }
+        else
+        {
+             return false;
+        }
+
     }
     
     }
