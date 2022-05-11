@@ -51,7 +51,6 @@ describe('Color Change Function', () => {
         if (input.includes(output[i]) && input[i]!==output[i]) {
           colorChange(target, 'wrongPosition')
         }
-        console.log(letters[i].style.backgroundColor)
       }
       
       for (let i = 0; i < letters.length; i++) {
