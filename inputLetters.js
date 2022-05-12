@@ -1,19 +1,24 @@
 'use strict'
 
 let currentletterBlock = document.getElementById('boardBlock1')
-let selectedLetter = document.getElementById('letter')
 
+document.addEventListener('keyup', inputLetter);        //event:user releases key
 
-selectedLetter.addEventListener('keyup', inputLetter);
+let guessesWord=[]                                      //array with guessed letters
+let rowNo=0;
 
 function inputLetter(event){
     var keyValue = event.key
     var keyCodeValue = event.code
 	
-    if(event.code >= "KeyA" && event.code<= "KeyZ"){
+    //user entry must be an alphabet
+    if(event.code >= "KeyA" && event.code<= "KeyZ"){       
+    currentletterBlock=keyValue.toUpperCase()           
+    guessesWord.push(currentletterBlock)                //user letter intput is added to array
+    
+    //testing purposes
     console.log(keyValue)
     console.log(keyCodeValue)
-    currentletterBlock.innerText=keyValue.toUpperCase()
+    console.log(guessesWord)
     }
 }
-
