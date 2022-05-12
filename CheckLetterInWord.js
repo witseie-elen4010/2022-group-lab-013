@@ -29,3 +29,5 @@ function CheckLetterInWord(letterToCheck,letterPosition,templateWord){
     }
     return 1;//returns 1 if letter is in correct place
 }
+
+module.exports = CheckLetterInWord
