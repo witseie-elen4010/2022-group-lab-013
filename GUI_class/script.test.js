@@ -1,18 +1,21 @@
+
 /* eslint-env jest */
 /*
-import 'script.js'
+const varBoard = import('./boardScript.js')
 
-test('console.log the text "hello"', () => {
-  const logSpy = jest.spyOn(console, 'log')
-  console.initBoard()
+const logSpy = jest.spyOn(console, 'log').mockImplementation()
 
-  expect(logSpy).toHaveBeenCalledWith('done')
-})
+describe('Unit tests board initilization', () => {
+  beforeEach(() => {
+    logSpy.mockClear()
+  }
+  )
+  test('Board is created', () => {
+    varBoard.initBoard()
+    expect(console.log).toBeCalledTimes(1)
+    expect(console.log).toHaveBeenLastCalledWith('Board Initialised')
+  }
+  )
+}
+)
 */
-let outputData = ''
-let storeLog = inputs => (outputData += inputs)
-test('Board inililized', () => {
-  console['log'] = jest.fn(storeLog)
-  require('./script.js')
-  expect(outputData).toBe('done')
-})
