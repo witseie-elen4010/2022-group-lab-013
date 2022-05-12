@@ -1,8 +1,10 @@
+/* eslint-env jest */
 import { WORDS } from './words.js'
 const noOfGuesses = 6
 
 //let row = document.getElementsByClassName("letter-row")[row_number]
 //let box = row.children[box_number]
+
 function initBoard () {
   let board = document.getElementById('game-board')
 
@@ -17,6 +19,7 @@ function initBoard () {
     }
     board.appendChild(row)
   }
+  console.log('done')
 }
 
 function populateRow (guessesWord, rowNo) {
@@ -44,9 +47,7 @@ function changeBoxColour (Colour, rowNo, boxNo) {
   }
 }
 
-console.log('Init board begin')
 initBoard()
-console.log('Init board complete')
 populateRow('Start', 0)
 populateRow(WORDS[0], 1)
 
