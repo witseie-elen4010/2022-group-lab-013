@@ -19,15 +19,24 @@
     }
 }*/
 
-function CheckLetterInWord(letterToCheck,letterPosition,templateWord){
-    variable = templateWord.indexOf(letterToCheck);
-    if(variable = -1){
-        return 0;//returns 0 if letter is wrong
+function CheckLetterInWord(wordToCheck,templateWord){
+    arrayLength = wordToCheck.length;
+    let rightnessArray =[];
+    for (let i =0;i<arrayLength;i++){
+        variable = templateWord.indexOf(wordToCheck[i]);
+        if(variable === -1){
+            rightnessArray[i] = 'wrong';//returns 0 if letter is wrong
+        }
+        else if (wordToCheck[i] === templateWord[i]){
+            rightnessArray[i] = 'correct';//returns 1 if letter is in correct place
+        }
+        else{
+            rightnessArray[i] = 'wrongPos';//returns 2 if letter is in word but in the wrong place
+        }
+        
     }
-    else if (variable = letterPosition){
-        return 2;//returns 2 if letter is in word but in the wrong place
-    }
-    return 1;//returns 1 if letter is in correct place
+    
+    return rightnessArray;
 }
 
 module.exports = CheckLetterInWord
