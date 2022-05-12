@@ -1,7 +1,6 @@
 /* eslint-env jest */
 'use strict'
 const changeColor = require('../colorChange')
-const colorChange = require('../colorChange')
 
 //jest.spyon(document, 'getElementById')
 describe('Color Change Function', () => {
@@ -23,7 +22,7 @@ describe('Color Change Function', () => {
     for (let i = 0; i < 5; i++) {
       const target = letters[i]
       if (input[i] === output[i]) {
-        colorChange(target, 'correct')
+        changeColor(target, 'correct')
       }
     }
     
@@ -49,7 +48,7 @@ describe('Color Change Function', () => {
       for (let i = 0; i < 5; i++) {
         const target = letters[i]
         if (input.includes(output[i]) && input[i]!==output[i]) {
-          colorChange(target, 'wrongPosition')
+          changeColor(target, 'wrongPosition')
         }
       }
       
@@ -73,7 +72,7 @@ describe('Color Change Function', () => {
     for (let i = 0; i < 5; i++) {
       const target = letters[i]
       if (input[i] !== output[i] && !input.includes(output[i])) {
-        colorChange(target, 'wrong')
+        changeColor(target, 'wrong')
       }
     }
     
@@ -120,13 +119,13 @@ describe('Color Change Function', () => {
     for (let i = 0; i < 5; i++) {
       const target = letters[i]
       if (input[i] === output[i]) {
-        colorChange(target, 'correct')
+        changeColor(target, 'correct')
       }else if (input[i] !== output[i]) {
 
         if (input.includes(output[i])) {
-        colorChange(target, 'wrongPosition')
+        changeColor(target, 'wrongPosition')
         }else if(!input.includes(output[i])){
-          colorChange(target, 'wrong')
+          changeColor(target, 'wrong')
         }
       }
     }
