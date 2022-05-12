@@ -18,4 +18,5 @@ if(words[rand].length==5)
     return words[rand]
 }
 
+module.exports=word;
 console.log(word());
