@@ -50,6 +50,6 @@ function changeBoxColour (boxCorrectnessStatus, rowNo, boxNo) {
 //Initialize the board
 initBoard()
 //Export functions for use in other .js files
-export {initBoard}
-export {populateRow}
-export {changeBoxColour}
+module.exports = initBoard;
+module.exports = populateRow;
+module.exports = changeBoxColour;

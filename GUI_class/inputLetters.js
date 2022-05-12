@@ -1,8 +1,9 @@
 'use strict'
 
-import {populateRow} from './boardScript.js'
-import {changeBoxColour} from './boardScript.js'
-import {UICorrectnessFeedback} from '../Interfacescript.js'
+const populateRow = require ('./boardScript.js')
+const changeBoxColour = require('./boardScript.js')
+//import {UICorrectnessFeedback} from '../Interfacescript.js'
+const UICorrectnessFeedback = require('../Interfacescript.js')
 
 let currentletterBlock = document.getElementById('currentBlock')
 
