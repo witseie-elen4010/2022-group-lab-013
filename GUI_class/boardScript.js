@@ -1,55 +1,55 @@
 /* eslint-env jest */
-import { WORDS } from './words.js'
+//import { WORDS } from './words.js'
 const noOfGuesses = 6
 
-//let row = document.getElementsByClassName("letter-row")[row_number]
-//let box = row.children[box_number]
-
+//Function to initializa game board
 function initBoard () {
-  let board = document.getElementById('game-board')
+  let board = document.getElementById('game-board') //board is of type HTMLElement
 
-  for (let i = 0; i < noOfGuesses; i++) {
-    let row = document.createElement('div')
+  for (let i = 0; i < 6; i++) { //Create 6 rows
+    let row = document.createElement('div') //row is of type HTMLElement
     row.className = 'letter-row'
 
-    for (let j = 0; j < 5; j++) {
-      let box = document.createElement('div')
+    for (let j = 0; j < 5; j++) { //Create 5 boxes for each row
+      let box = document.createElement('div') //box is of type HTMLElement
       box.className = 'letter-box'
-      row.appendChild(box)
+      row.appendChild(box)  //Add box as a child element of the current row
     }
-    board.appendChild(row)
+    board.appendChild(row)  //Add row as a child element of the board
   }
-  console.log('done')
+  console.log('Board Initialised')  //Log message used for testing
 }
 
+//Function to populate a given row with a given word
 function populateRow (guessesWord, rowNo) {
-  let row = document.getElementsByClassName('letter-row')[rowNo]
+  let row = document.getElementsByClassName('letter-row')[rowNo]  //row is specified by rowNo
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) { //Insert each letter of the given word (guessesWord) into boxes of row
     let box = row.children[i]
     box.textContent = guessesWord[i]
     box.classList.add('filled-box')
   }
 }
 
-function changeBoxColour (Colour, rowNo, boxNo) {
-  let row = document.getElementsByClassName('letter-row')[rowNo]
-  let box = row.children[boxNo]
+//Function to change the colour of a given box in a given row
+function changeBoxColour (boxCorrectnessStatus, rowNo, boxNo) {
+  let row = document.getElementsByClassName('letter-row')[rowNo]  //row is specified by rowNo
+  let box = row.children[boxNo] //box is specified by boxNo
 
-  if (Colour === 'grey') {
-    box.style.backgroundColor = 'grey'
+  if (boxCorrectnessStatus === 'wrong') {
+    box.style.backgroundColor = 'grey'  //Grey means letter is not in word
   } else
-  if (Colour === 'yellow') {
-    box.style.backgroundColor = '#baa817'
+  if (boxCorrectnessStatus === 'wrongPos') {
+    box.style.backgroundColor = '#baa817' //Yellow means letter is in word but in the wrong position
   } else
-  if (Colour === 'green') {
-    box.style.backgroundColor = 'green'
+  if (boxCorrectnessStatus === 'correct') {
+    box.style.backgroundColor = 'green' //Green means the letter is in word and correct position
   }
 }
 
+//Initialize the board
 initBoard()
+//Export functions for use in other .js files
+export {initBoard}
 export {populateRow}
-
-changeBoxColour('green', 0, 0)
-changeBoxColour('yellow', 0, 1)
-changeBoxColour('grey', 0, 2)
+export {changeBoxColour}
