@@ -5,6 +5,7 @@ function Guessword(){
 let s=" ";
 let rand=0;
 let check=false;
+
 while (check==false)
 {
 rand=Math.floor(Math.random()*words.length);
@@ -20,3 +21,4 @@ if(words[rand].length==5)
 
 module.exports=Guessword;
 console.log(Guessword());
+
