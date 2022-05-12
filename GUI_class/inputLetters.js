@@ -1,6 +1,8 @@
 'use strict'
 
 import {populateRow} from './boardScript.js'
+import {changeBoxColour} from './boardScript.js'
+import {UICorrectnessFeedback} from '../Interfacescript.js'
 
 let currentletterBlock = document.getElementById('currentBlock')
 
@@ -36,5 +38,9 @@ function inputLetter(event){
             columnNo=0                                                  //set column number back to 0 for next guess
             rowNo++
             populateRow (guessesWord, rowNo)
+        }
+        boxCoulourCorrectnessArray = UICorrectnessFeedback(guessesWord)
+        for (let j = 0; j < 5; j++) {
+            changeBoxColour(boxCoulourCorrectnessArray[j],rowNo,j)
         }
 }
