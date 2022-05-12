@@ -17,57 +17,8 @@ if(words[rand].length==5)
 }
     return words[rand]
 }
-
+module.exports=word;
 console.log(word());
 
-class Turn {
-
-    constructor(){
-    
-        this.RemainingTurns=6;
-    }
-          
-    getRemainingTurns()
-    {
-        return  this.RemainingTurns;
-    }
-    
-    resetTurns()
-    {
-        this.RemainingTurns = 6; 
-    }
-    
-    CompleteTurn()
-    {
-        this.RemainingTurns--; 
-    }
-    
-    HasTurns()
-    {
-    if(this.RemainingTurns>0)
-    {
-        return true;
-    }
-    else
-    {
-    return false;
-    }
-    }
-
-    CorrectRow(x)
-    {
-        if(x==this.RemainingTurns-1)
-        {
-        
-            return true;
-        }
-        else
-        {
-             return false;
-        }
-
-    }
-    
-    }
 
 
