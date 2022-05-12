@@ -48,8 +48,7 @@ function changeBoxColour (Colour, rowNo, boxNo) {
 }
 
 initBoard()
-populateRow('Start', 0)
-populateRow(WORDS[0], 1)
+export {populateRow}
 
 changeBoxColour('green', 0, 0)
 changeBoxColour('yellow', 0, 1)
