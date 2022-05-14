@@ -1,9 +1,9 @@
 'use strict'
 
-const populateRow = require ('./boardScript.js')
-const changeBoxColour = require('./boardScript.js')
+import {populateRow} from './boardScript.js'
+import {changeBoxColour} from './boardScript.js'
 //import {UICorrectnessFeedback} from '../Interfacescript.js'
-const UICorrectnessFeedback = require('../Interfacescript.js')
+import {UICorrectnessFeedback} from '../Interfacescript.js'
 
 let currentletterBlock = document.getElementById('currentBlock')
 
@@ -35,13 +35,18 @@ function inputLetter(event){
     
         //User selects Enter to go to nect Row
         if(columnNo === 5 && event.code === "Enter"){
+            for(let a=0;a<5;a++){
+                guessesWord[a]= guessesWord[a].toLowerCase();}
+            let boxCoulourCorrectnessArray = UICorrectnessFeedback(guessesWord);
+            console.log(guessesWord);
+            for (let j = 0; j < 5; j++) {
+                changeBoxColour(boxCoulourCorrectnessArray[j],rowNo,j)
+            }
             guessesWord=[]                                              //empty guessed word array after the end of a guess
             columnNo=0                                                  //set column number back to 0 for next guess
             rowNo++
             populateRow (guessesWord, rowNo)
+            
         }
-        boxCoulourCorrectnessArray = UICorrectnessFeedback(guessesWord)
-        for (let j = 0; j < 5; j++) {
-            changeBoxColour(boxCoulourCorrectnessArray[j],rowNo,j)
-        }
+        
 }

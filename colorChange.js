@@ -14,4 +14,4 @@ function changeColor (element, flag) {
   }
 }
 
-module.exports = changeColor
+export {changeColor}

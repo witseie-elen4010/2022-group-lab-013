@@ -1,29 +1,10 @@
-/*class CheckLetterInWord{
-    constructor(checkletter,templateWord){
-    this.checkletter = checkletter;
-    this.templateWord = templateWord;
-    }
-    isInWord(){
-        for(let iter of this.templateWord){
-            if (this.#isInWord(this.checkletter[iter])){
-                log("true");
-                return true;
-            }
-        }
-    }
-
-    bool #isInWord(letter){
-        if(letter = checkletter){
-            return true;
-        }
-    }
-}*/
+'use strict'
 
 function CheckLetterInWord(wordToCheck,templateWord){
-    arrayLength = wordToCheck.length;
+    let arrayLength = wordToCheck.length;
     let rightnessArray =[];
     for (let i =0;i<arrayLength;i++){
-        variable = templateWord.indexOf(wordToCheck[i]);
+        let variable = templateWord.indexOf(wordToCheck[i]);
         if(variable === -1){
             rightnessArray[i] = 'wrong';//returns 0 if letter is wrong
         }
@@ -35,8 +16,7 @@ function CheckLetterInWord(wordToCheck,templateWord){
         }
         
     }
-    
     return rightnessArray;
 }
 
-module.exports = CheckLetterInWord
+export {CheckLetterInWord};

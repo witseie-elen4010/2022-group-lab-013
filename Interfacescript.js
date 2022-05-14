@@ -1,16 +1,15 @@
 //import { Guessword } from './GuessWords.js'
-const CheckLetterInWord = require('./CheckLetterInWord');
+import {CheckLetterInWord} from './CheckLetterInWord.js';
 //const Guessword = require('./GuessWords');
-
 //console.log(Guessword());
 let word = 'caste';
 //let testWord = 'pashc' 
 
-console.log(CheckLetterInWord(testWord,word));
+//console.log(CheckLetterInWord(testWord,word));
 
 function UICorrectnessFeedback(guessedWord){
-    CheckLetterInWord(guessedWord,word);
-    return Check;
+    let check=CheckLetterInWord(guessedWord,word);
+    return check;
 }
 
-module.exports = UICorrectnessFeedback;
+export {UICorrectnessFeedback};
