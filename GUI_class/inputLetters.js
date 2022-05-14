@@ -1,9 +1,11 @@
 'use strict'
-
-const populateRow = require ('./boardScript.js')
-const changeBoxColour = require('./boardScript.js')
+//import boardConstruct from './boardScript.js';
+import {UpdateWordContainer} from './boardScript.js';
+import {ChangeLetterContainerColour} from './boardScript.js';
+//const UpdateWordContainer = require('./boardScript.js')
+//const ChangeLetterContainerColour = require('./boardScript.js')
 //import {UICorrectnessFeedback} from '../Interfacescript.js'
-const UICorrectnessFeedback = require('../Interfacescript.js')
+import UICorrectnessFeedback from '../Interfacescript.js';
 
 let currentletterBlock = document.getElementById('currentBlock')
 
@@ -23,14 +25,14 @@ function inputLetter(event){
     
         currentletterBlock=keyValue.toUpperCase()
         guessesWord.push(currentletterBlock)                            //user letter intput is added to array
-        populateRow (guessesWord, rowNo)
+        UpdateWordContainer (guessesWord, rowNo)
         }
     
         //Case when user deletes letter
         if(event.code === "Backspace"){
             guessesWord.pop()
             columnNo-=1                                             //decrement the column by 1 when user deleted letter
-            populateRow (guessesWord, rowNo)
+            UpdateWordContainer (guessesWord, rowNo)
         }
     
         //User selects Enter to go to nect Row
@@ -38,10 +40,10 @@ function inputLetter(event){
             guessesWord=[]                                              //empty guessed word array after the end of a guess
             columnNo=0                                                  //set column number back to 0 for next guess
             rowNo++
-            populateRow (guessesWord, rowNo)
+            UpdateWordContainer (guessesWord, rowNo)
         }
         boxCoulourCorrectnessArray = UICorrectnessFeedback(guessesWord)
         for (let j = 0; j < 5; j++) {
-            changeBoxColour(boxCoulourCorrectnessArray[j],rowNo,j)
+            ChangeLetterContainerColour(boxCoulourCorrectnessArray[j],rowNo,j)
         }
 }
