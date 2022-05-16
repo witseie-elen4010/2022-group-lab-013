@@ -11,7 +11,7 @@ describe('Unit tests board initilization', () => {
   }
   )
   test('Board is created', () => {
-    varBoard.GameBoardInitialization()
+    varBoard.initBoard()
     expect(console.log).toBeCalledTimes(1)
     expect(console.log).toHaveBeenLastCalledWith('Board Initialised')
   }
