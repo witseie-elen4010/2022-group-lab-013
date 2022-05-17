@@ -4,6 +4,7 @@ import {populateRow} from './boardScript.js'
 import {changeBoxColour} from './boardScript.js'
 //import {UICorrectnessFeedback} from '../Interfacescript.js'
 import {UICorrectnessFeedback} from '../Interfacescript.js'
+import{IsWord} from '../GuessWords.js'
 
 let currentletterBlock = document.getElementById('currentBlock')
 
@@ -35,17 +36,26 @@ function inputLetter(event){
     
         //User selects Enter to go to nect Row
         if(columnNo === 5 && event.code === "Enter"){
+
             for(let a=0;a<5;a++){
                 guessesWord[a]= guessesWord[a].toLowerCase();}
             let boxCoulourCorrectnessArray = UICorrectnessFeedback(guessesWord);
             console.log(guessesWord);
-            for (let j = 0; j < 5; j++) {
-                changeBoxColour(boxCoulourCorrectnessArray[j],rowNo,j)
+            if(IsWord(guessesWord)){
+                for (let j = 0; j < 5; j++) {
+                    changeBoxColour(boxCoulourCorrectnessArray[j],rowNo,j)
+                }
+                guessesWord=[]                                              //empty guessed word array after the end of a guess
+                columnNo=0                                                  //set column number back to 0 for next guess
+                rowNo++
+                populateRow (guessesWord, rowNo)
             }
-            guessesWord=[]                                              //empty guessed word array after the end of a guess
-            columnNo=0                                                  //set column number back to 0 for next guess
-            rowNo++
-            populateRow (guessesWord, rowNo)
+            else{
+                console.log('not a valid Guessle word');
+                guessesWord=[]                                              
+                columnNo=0                                                  
+                populateRow (guessesWord, rowNo)
+            }
             
         }
         
