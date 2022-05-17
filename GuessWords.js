@@ -18,20 +18,16 @@ function Guessword() {
 }
 
 function IsWord(inputWordArr) {
-    let isInWord = false;
     let inputWord = inputWordArr[0]+inputWordArr[1]+inputWordArr[2]+inputWordArr[3]+inputWordArr[4]
     for(let i = 0; i<words.length;i++){
 
         if(inputWord==words[i]){
             return true;
         }
-        console.log(words[i])
-        console. log('*****')
-        console.log(inputWord)
+
     }
     return false;
 }
 
 export { Guessword,IsWord };
-console.log(Guessword());
 
