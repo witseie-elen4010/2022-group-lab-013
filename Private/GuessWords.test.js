@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const words = require('./GuessWords').default;
+const words = require('../Public/Script/GuessWords').default;
 
 
 test('Check if length of random guess word is 5', () => {
