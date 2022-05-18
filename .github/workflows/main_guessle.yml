@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'Guessle'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_752EC254BE614E0AB610E8F5DA6E836C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_842C542BF4F7417FA2659DB979C61462 }}
           package: .
