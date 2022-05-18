@@ -3,8 +3,8 @@
 import {populateRow} from './boardScript.js'
 import {changeBoxColour} from './boardScript.js'
 //import {UICorrectnessFeedback} from '../Interfacescript.js'
-import {UICorrectnessFeedback} from '../Interfacescript.js'
-import{IsWord} from '../GuessWords.js'
+import {UICorrectnessFeedback} from './Interfacescript.js'
+import{IsWord} from './GuessWords.js'
 
 let currentletterBlock = document.getElementById('currentBlock')
 
