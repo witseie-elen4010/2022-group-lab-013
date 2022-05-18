@@ -28,7 +28,7 @@ function inputLetter(event){
         }
     
         //Case when user deletes letter
-        if(event.code === "Backspace"){
+        if(event.code === "Backspace" && columnNo>0){
             guessesWord.pop()
             columnNo-=1                                             //decrement the column by 1 when user deleted letter
             populateRow (guessesWord, rowNo)
