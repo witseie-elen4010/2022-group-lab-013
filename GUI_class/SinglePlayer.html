@@ -11,15 +11,51 @@
     <body>
         <h1> Guessle Game </h1>
         
-        <div id="game-board">
-
+        <div id="game-board"></div>
+        <div id="Onscreen-keyboard">
+            <div class="Row1">
+                <button class="Onscreen-keyboard-button">Q</button>
+                <button class="Onscreen-keyboard-button">W</button>
+                <button class="Onscreen-keyboard-button">E</button>
+                <button class="Onscreen-keyboard-button">R</button>
+                <button class="Onscreen-keyboard-button">T</button>
+                <button class="Onscreen-keyboard-button">Y</button>
+                <button class="Onscreen-keyboard-button">U</button>
+                <button class="Onscreen-keyboard-button">I</button>
+                <button class="Onscreen-keyboard-button">O</button>
+                <button class="Onscreen-keyboard-button">P</button>
+            </div>
+            <div class="Row2">
+                <button class="Onscreen-keyboard-button">A</button>
+                <button class="Onscreen-keyboard-button">S</button>
+                <button class="Onscreen-keyboard-button">D</button>
+                <button class="Onscreen-keyboard-button">F</button>
+                <button class="Onscreen-keyboard-button">G</button>
+                <button class="Onscreen-keyboard-button">H</button>
+                <button class="Onscreen-keyboard-button">J</button>
+                <button class="Onscreen-keyboard-button">K</button>
+                <button class="Onscreen-keyboard-button">L</button>
+            </div>
+            <div class="Row3">
+                <button class="Onscreen-keyboard-button">Del</button>
+                <button class="Onscreen-keyboard-button">Z</button>
+                <button class="Onscreen-keyboard-button">X</button>
+                <button class="Onscreen-keyboard-button">C</button>
+                <button class="Onscreen-keyboard-button">V</button>
+                <button class="Onscreen-keyboard-button">B</button>
+                <button class="Onscreen-keyboard-button">N</button>
+                <button class="Onscreen-keyboard-button">M</button>
+                <button class="Onscreen-keyboard-button">Enter</button>
+            </div>
         </div>
+    
         <script
                 src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>
         <script type="module" src="boardScript.js" ></script>
         <script type="module" src="inputLetters.js"></script>
+        <script type="module" src="Player.js"></script>
     <div id="currentBlock"></div>
     </body>
 </html>

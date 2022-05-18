@@ -19,6 +19,6 @@ if(words[rand].length==5)
     return words[rand]
 }
 
-export {defaultGuessword};
-console.log(Guessword());
+export {Guessword};
+
 

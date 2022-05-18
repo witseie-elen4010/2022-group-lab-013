@@ -29,3 +29,23 @@ h1 {
   .letter-row {
     display: flex;
   }
+
+
+  #Onscreen-keyboard{
+    margin: 1rem 0; 
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+  }
+  
+  .Row2 {
+    margin: 0.5rem 0;
+  }
+  
+  .Onscreen-keyboard-button {
+   cursor: pointer; 
+    font-size: 1rem;
+    margin: 0 2px;
+    padding: 0.5rem;
+    font-weight: 700;
+  }
