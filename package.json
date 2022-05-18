@@ -1,6 +1,6 @@
 {
-  "type": "module",
   "dependencies": {
+    "express": "4.18.1",
     "live-server": "^1.2.2"
   },
   "devDependencies": {
@@ -10,18 +10,7 @@
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0"
   },
-
-  "scripts": {
-    "test": "jest"
-  },
-  "jest": {
-    "testEnvironment": "jsdom", 
-    "collectCoverage": true,
-    "coverageReporters": [
-      "html",
-      "text"
-    ]
-  },
+  "scripts": {},
   "name": "2022-group-lab-013",
   "description": "Title of application: Guessle",
   "version": "1.0.0",
@@ -36,5 +25,5 @@
   "bugs": {
     "url": "https://github.com/witseie-elen4010/2022-group-lab-013/issues"
   },
-  "homepage": "https://github.com/witseie-elen4010/2022-group-lab-013#readme" 
+  "homepage": "https://github.com/witseie-elen4010/2022-group-lab-013#readme"
 }
