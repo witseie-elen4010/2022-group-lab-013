@@ -11,7 +11,6 @@
     "jest-environment-jsdom": "^28.1.0"
   },
   "scripts": {
-    "start": "node ./index.js" 
   },
   "name": "2022-group-lab-013",
   "description": "Title of application: Guessle",
