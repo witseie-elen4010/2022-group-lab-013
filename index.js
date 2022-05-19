@@ -7,6 +7,8 @@ const gameRouter = require('./gameRoutes.js')
 
 app.use('/', gameRouter)
 app.use('/cdn', express.static('Public'));
+
+
 const port = process.env.PORT || 3000
 app.listen(port)
 console.log('Express server running on port', port)
