@@ -10,7 +10,8 @@
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0"
   },
-  "scripts": {},
+  "scripts": {
+  },
   "name": "2022-group-lab-013",
   "description": "Title of application: Guessle",
   "version": "1.0.0",
