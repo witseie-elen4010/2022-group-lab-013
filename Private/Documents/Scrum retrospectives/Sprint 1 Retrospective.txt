@@ -1,0 +1,58 @@
+#### Preparation:
+- Date:2022/05/19
+- Participants:FalseCrystal,HyChriFo,Cynthiack,Keowa-1877616,TTRasemana
+- Product owner:  @stephenlevitt
+- Team members: @FalseCrystal,@HyChriFo,@Cynthiack,@Keowa-1877616,@TTRasemana
+
+#### 2022-group-lab-013
+#### Scrum master: @HyChriFo
+
+#### Project Goal
+Develop a multiplayer word-guessing game based on Wordle, using NOde.js and hosted on Azure.
+
+#### Sprint goal
+~ Create a basic game board for the Guessle (Wordle clone) game
+~ Generate and populate a GUI board with 5x6 blocks
+~ Generate a random word to be assigned for users to guess
+~ Allow users to input their guesses using keyboard
+~ Give the user feedback on their guess in terms of colour changes per individual letter
+   -Yellow blocks correspond to a letter in the word but in the incorrect place. 
+   -Grey block indicate an incorrect letter.
+   -Green blocks indicate a correct letter
+~ User is only able to input valid word
+
+The achieved website is: https://guessle.azurewebsites.net/
+
+#### Duration of Sprint: 1 week
+
+#### Moderation
+#issue 11 which generates the random word for the user to guess can be done more effectively using an API
+#issue 4 If user input includes repeated incorrect letter, game feedback colours both letter blocks rather than the one.
+
+#### Successes
+~ Closed all issues
+~ Team has a working branch
+~ Developed a functial webpage
+
+
+#### Failures
+~ Exceeded time durantion of sprint due to branch integration and deployment complications.
+~ Collaboration as a team
+~ Communication skills
+~ Backlog: Project was not planned in its entirety, but according to Sprints, and thus the backlog is insufficient.
+~ Workflow:
+Scrum board was not used throughout project. It was created at the end of sprint 1.
+Trunk based development approach was not executed adequately. Multiple merging branches were created as opposed to one master branch.
+Sprint goals were not identitifed in their entirety due to poor planning.
+
+#### Improvements
+~ Merging of branches: Merging of code from feature branches into main
+~ Code structure: Functions scattered resulting in a larger number of script files with the same function
+
+
+#### Velocity for sprint
+
+- Possible points for 7 user stories: 22
+
+		#### Achieved Velocity for Sprint 1: 22
+		
