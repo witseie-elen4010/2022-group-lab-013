@@ -1,18 +1,36 @@
 'use strict'
 
-function CheckLetterInWord(wordToCheck,templateWord){
-    let arrayLength = wordToCheck.length;
+function CheckLetterInWord(userInputWord,randomWordToGuess){
+    let arrayLength = userInputWord.length;
     let rightnessArray =[];
+    let isRepeatedInWordToGuess = false;
+    let repeatLetter='';
+    let firstRepeat = -1;
     for (let i =0;i<arrayLength;i++){
-        let variable = templateWord.indexOf(wordToCheck[i]);
-        if(variable === -1){
-            rightnessArray[i] = 'wrong';//returns 0 if letter is wrong
+        let posIfInWord = randomWordToGuess.indexOf(userInputWord[i]);
+        ;
+        
+        if(posIfInWord != -1 && randomWordToGuess.indexOf(userInputWord[i],posIfInWord+1)!=-1){
+            isRepeatedInWordToGuess = true;
+            repeatLetter=userInputWord[i];
         }
-        else if (wordToCheck[i] === templateWord[i]){
-            rightnessArray[i] = 'correct';//returns 1 if letter is in correct place
+
+        if(userInputWord.indexOf(userInputWord[i],i+1)!=-1&&firstRepeat==-1){
+            firstRepeat=i;
+        }
+        //**************Actual checks********************//
+        if(posIfInWord === -1){
+            rightnessArray[i] = 'wrong';//returns 'wrong' if letter is wrong
+        }
+        else if (userInputWord[i] === randomWordToGuess[i]){
+            rightnessArray[i] = 'correct';//returns 'correct' if letter is in correct place
         }
         else{
-            rightnessArray[i] = 'wrongPos';//returns 2 if letter is in word but in the wrong place
+            rightnessArray[i] = 'wrongPos';//returns 'wrongPos' if letter is in word but in the wrong place
+            if(!isRepeatedInWordToGuess && firstRepeat!=-1 && i!=firstRepeat){
+                rightnessArray[i] = 'wrong';
+                //This code accounts for repeated letters in the input wourd
+            }
         }
         
     }
