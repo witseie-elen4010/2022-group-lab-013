@@ -16,13 +16,14 @@ document.addEventListener('keyup', inputLetter);        //event:user releases ke
 let guessesWord=[]                                      //array with guessed letters
 let rowNo=0;
 let columnNo = 0;
-
+let currentTurn = 0
+let winFlag = false
 function inputLetter(event){
     var keyValue = event.key
     var keyCodeValue = event.code
 	
     //user entry must be an alphabet
-    if(event.code >= "KeyA" && event.code<= "KeyZ" && columnNo<5){
+    if(event.code >= "KeyA" && event.code<= "KeyZ" && columnNo<5 && currentTurn <6 && winFlag === false){
         columnNo++
     
         currentletterBlock=keyValue.toUpperCase()
@@ -54,8 +55,8 @@ function inputLetter(event){
                 columnNo=0                                                  //set column number back to 0 for next guess
                 rowNo++
                 populateRow (guessesWord, rowNo)
-                IncreaseTurnCounter()
-                WinCheck(boxCoulourCorrectnessArray)
+                currentTurn  = IncreaseTurnCounter()
+                winFlag = WinCheck(boxCoulourCorrectnessArray)
                 EndGameCheck()
             }
             else{
