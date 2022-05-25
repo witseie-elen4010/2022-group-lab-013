@@ -15,6 +15,11 @@ const UpdateSingleplayerGames=functions.UpdateSingleplayerGames;
 const UpdateSingleplayerWins=functions.UpdateSingleplayerWins;
 const UpdateMultiplayerGames=functions.UpdateMultiplayerGames;
 const UpdateMultiplayerWins=functions.UpdateMultiplayerWins;
+const GetPleyerId=functions.GetPleyerId;
+const GetSinglePlayerWins=functions.GetSinglePlayerWins;
+const GetSinglePlayerGames=functions.GetSinglePlayerGames;
+const GetMultiPlayerWins=functions.GetMultiPlayerWins;
+const GetMultiplayerGames=functions.GetMultiplayerGames;
 
 const uri = "mongodb+srv://Software3:Sprinters@cluster0.nuwj9.mongodb.net/Guessle?retryWrites=true&w=majority";
 
@@ -46,11 +51,20 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => app.listen(3000))
     .catch(err => console.log(err));
 
-
 ValidLogin('Sprint3','8').then(response=> 
     {let checked=response
      console.log(checked)
     });
 
 UpdateSingleplayerGames('Sprint3','4')
-    
+
+//Potential way to use functions
+/*
+let PlayerId = await GetPleyerId('Sprint2');
+console.log(PlayerId);
+*/
+GetPleyerId('Sprint3').then(response=> 
+    {let PlayerId=response
+     console.log(PlayerId)
+    });
+

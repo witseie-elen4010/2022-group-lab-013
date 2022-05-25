@@ -1,5 +1,6 @@
 const { model } = require("mongoose");
 const PlayerSheet = require('./PlayerSheet.js');
+
 async function AddnewPlayer(username, password) {
     const newPlayersheet = new PlayerSheet({
         Username: username,
@@ -75,7 +76,63 @@ async function UpdateSingleplayerGames(name) {
    console.log('SinglePlayerGames updated');
 }
 
+async function GetPleyerId(name) {
+    const PlayerObject = await PlayerSheet.findOne({'Username': name});
+    console.log(PlayerObject._id);
 
+    if (PlayerObject) {
+        console.log('Id of ' + name + ' = ' + PlayerObject._id);
+        return PlayerObject._id;
+    }
+    else {
+        console.log('Id of ' + name + ' = not found');
+        return false
+    }
+}
 
+async function GetSinglePlayerWins(name) {
+    const PlayerObject = await PlayerSheet.findOne({'Username': name});
+
+    if (PlayerObject) {
+        return PlayerObject.SingleplayerWins;
+    }
+    else {
+        return false
+    }
+}
+
+async function GetSinglePlayerGames(name) {
+    const PlayerObject = await PlayerSheet.findOne({'Username': name});
+
+    if (PlayerObject) {
+        return PlayerObject.SingleplayerGames;
+    }
+    else {
+        return false
+    }
+}
+
+async function GetMultiPlayerWins(name) {
+    const PlayerObject = await PlayerSheet.findOne({'Username': name});
+
+    if (PlayerObject) {
+        return PlayerObject.MultiplayerWins;
+    }
+    else {
+        return false
+    }
+}
+
+async function GetMultiplayerGames(name) {
+    const PlayerObject = await PlayerSheet.findOne({'Username': name});
+
+    if (PlayerObject) {
+        return PlayerObject.MultiplayerGames;
+    }
+    else {
+        return false
+    }
+}
 module.exports={AddnewPlayer,UpdatePassword,UserExits,ValidLogin,UpdateSingleplayerGames,
-    UpdateSingleplayerWins,UpdateMultiplayerGames,UpdateMultiplayerWins}
+    UpdateSingleplayerWins,UpdateMultiplayerGames,UpdateMultiplayerWins,
+    GetPleyerId,GetSinglePlayerWins,GetSinglePlayerGames,GetMultiPlayerWins,GetMultiplayerGames}
