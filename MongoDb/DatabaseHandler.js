@@ -78,7 +78,7 @@ async function UpdateSingleplayerGames(name) {
 
 async function GetPleyerId(name) {
     const PlayerObject = await PlayerSheet.findOne({'Username': name});
-    console.log(PlayerObject._id);
+    //console.log(PlayerObject._id);
 
     if (PlayerObject) {
         console.log('Id of ' + name + ' = ' + PlayerObject._id);
@@ -133,6 +133,7 @@ async function GetMultiplayerGames(name) {
         return false
     }
 }
+
 module.exports={AddnewPlayer,UpdatePassword,UserExits,ValidLogin,UpdateSingleplayerGames,
     UpdateSingleplayerWins,UpdateMultiplayerGames,UpdateMultiplayerWins,
     GetPleyerId,GetSinglePlayerWins,GetSinglePlayerGames,GetMultiPlayerWins,GetMultiplayerGames}

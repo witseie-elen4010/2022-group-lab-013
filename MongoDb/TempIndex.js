@@ -1,6 +1,6 @@
 ///    Install before use
 ///npm install mongoose express body-parser nodemon
-/////=> to run script using nodemon=> npx nodemon Tempindex.js
+/////=> to run script using nodemon=> npx nodemon TempIndex.js
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -58,13 +58,8 @@ ValidLogin('Sprint3','8').then(response=>
 
 UpdateSingleplayerGames('Sprint3','4')
 
-//Potential way to use functions
-/*
-let PlayerId = await GetPleyerId('Sprint2');
-console.log(PlayerId);
-*/
 GetPleyerId('Sprint3').then(response=> 
     {let PlayerId=response
-     console.log(PlayerId)
+     console.log("Payer ID recieved as: " + PlayerId)
     });
 
