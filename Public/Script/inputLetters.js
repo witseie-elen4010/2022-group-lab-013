@@ -4,10 +4,12 @@ import {populateRow} from './boardScript.js'
 import {changeBoxColour} from './boardScript.js'
 //import {UICorrectnessFeedback} from '../Interfacescript.js'
 import {UICorrectnessFeedback} from './Interfacescript.js'
+import{GetAnswer} from './Interfacescript.js'
 import{IsWord} from './GuessWords.js'
 import{IncreaseTurnCounter} from './checkGameOver.js'
 import{EndGameCheck} from './checkGameOver.js'
 import{WinCheck} from './checkGameOver.js'
+
 
 let currentletterBlock = document.getElementById('currentBlock')
 
@@ -18,6 +20,7 @@ let rowNo=0;
 let columnNo = 0;
 let currentTurn = 0
 let winFlag = false
+const answer = GetAnswer()
 function inputLetter(event){
     var keyValue = event.key
     var keyCodeValue = event.code
@@ -46,7 +49,7 @@ function inputLetter(event){
             }
 
             let boxCoulourCorrectnessArray = UICorrectnessFeedback(guessesWord);
-            console.log(guessesWord);
+            //console.log(guessesWord);
             if(IsWord(guessesWord)){
                 for (let j = 0; j < 5; j++) {
                     changeBoxColour(boxCoulourCorrectnessArray[j],rowNo,j)
@@ -57,10 +60,10 @@ function inputLetter(event){
                 populateRow (guessesWord, rowNo)
                 currentTurn  = IncreaseTurnCounter()
                 winFlag = WinCheck(boxCoulourCorrectnessArray)
-                EndGameCheck()
+                EndGameCheck(answer)
             }
             else{
-                console.log('not a valid Guessle word');
+                //console.log('not a valid Guessle word');
                 guessesWord=[]                                              
                 columnNo=0                                                  
                 populateRow (guessesWord, rowNo)

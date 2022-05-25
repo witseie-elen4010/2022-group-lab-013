@@ -15,7 +15,7 @@ function GameBoardInitialization () {
     }
     gameBoard.appendChild(wordContainer)  //Add wordContainer as a child element of the board
   }
-  console.log('Board Initialised')  //Log message used for testing
+  //console.log('Board Initialised')  //Log message used for testing
 }
 
 //Function to populate a given wordContainer with a given word
