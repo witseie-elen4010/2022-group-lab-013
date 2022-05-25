@@ -12,4 +12,4 @@ const port = process.env.PORT || 3000
 app.listen(port)
 console.log('Express server running on port', port)
 
-//http://127.0.0.1:3000/SinglePlayer for checkingno
+//http://127.0.0.1:3000/ for checkingno

@@ -22,11 +22,14 @@ function GameBoardInitialization () {
 function UpdateWordContainer (guessesWord, guessNo) {
   let wordContainer  = document.getElementsByClassName('letter-row')[guessNo]  //wordContainer is specified by guessNo
 
-  for (let i = 0; i < 5; i++) { //Insert each letter of the given word (guessesWord) into letterContainers of wordContainer
+  if(wordContainer){
+    for (let i = 0; i < 5; i++) { //Insert each letter of the given word (guessesWord) into letterContainers of wordContainer
     let letterContainer = wordContainer.children[i]
     letterContainer.textContent = guessesWord[i]
     letterContainer.classList.add('filled-box')
   }
+  }
+  
 }
 
 //Function to change the colour of a given box in a given wordContainer
