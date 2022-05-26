@@ -10,7 +10,10 @@ let word = Guessword();
 
 function UICorrectnessFeedback(guessedWord){
     let check=CheckLetterInWord(guessedWord,word);
-    return check;
+    return check
 }
 
-export {UICorrectnessFeedback};
+function GetAnswer(){
+    return word
+}
+export {UICorrectnessFeedback,GetAnswer};
