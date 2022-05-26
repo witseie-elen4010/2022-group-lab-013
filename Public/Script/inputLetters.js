@@ -71,12 +71,11 @@ function inputLetter(event){
             }
             else{
                 //console.log('not a valid Guessle word');
+                setTimeout(function(){alert('Not a valid Guessle word, please try again')})
                 guessesWord=[]                                              
                 columnNo=0                                                  
                 populateRow (guessesWord, rowNo)
-            }
-            
-            
+            }            
         }
         
 }
