@@ -37,6 +37,13 @@ body {
     text-align: center;
   }
 
+  .detail-box h4{
+    color: solid rgb(6, 24, 70);
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-align: center;
+  }
+
   .detail-box input[type="text"],.detail-box input[type="password"] {
     border: 2px solid rgb(6, 24, 70); 
     border-radius: 5px;
