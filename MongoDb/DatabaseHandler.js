@@ -1,5 +1,9 @@
 const { model } = require("mongoose");
+
 const PlayerSheet = require('./PlayerSheet.js');
+const express = require('express');
+const mongoose = require('mongoose');
+var bodyParser = require('body-parser')
 
 async function AddnewPlayer(username, password) {
     const newPlayersheet = new PlayerSheet({
@@ -134,6 +138,34 @@ async function GetMultiplayerGames(name) {
     }
 }
 
+async function ConnectToDatabase() {
+    const uri = "mongodb+srv://Software3:Sprinters@cluster0.nuwj9.mongodb.net/Guessle?retryWrites=true&w=majority";
+    const app = express()
+    
+    app.use(bodyParser.json())
+    app.use(express.static('public'))
+    app.use(bodyParser.urlencoded({
+        extended: true
+    }))
+
+    app.set('view engine', 'ejs');  // register view engine
+    app.use(express.static('public'));  // middleware & static files
+    app.use((req, res, next) => {
+        res.locals.path = req.path;
+        next();
+    });
+    app.get("/", (req, res) => {
+        res.set({
+            "Allow-access-Allow-Origin": '*'
+        })
+    });
+
+    mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(result => app.listen(3000))
+        .catch(err => console.log(err));
+}
+
 module.exports={AddnewPlayer,UpdatePassword,UserExits,ValidLogin,UpdateSingleplayerGames,
     UpdateSingleplayerWins,UpdateMultiplayerGames,UpdateMultiplayerWins,
-    GetPleyerId,GetSinglePlayerWins,GetSinglePlayerGames,GetMultiPlayerWins,GetMultiplayerGames}
+    GetPleyerId,GetSinglePlayerWins,GetSinglePlayerGames,GetMultiPlayerWins,GetMultiplayerGames,
+    ConnectToDatabase}

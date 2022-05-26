@@ -6,7 +6,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 var bodyParser = require('body-parser')
 const PlayerSheet = require('./PlayerSheet.js');
-const functions =require('./DatabaseHandler.js');
+const functions = require('./DatabaseHandler.js');
 const AddnewPlayer=functions.AddnewPlayer;
 const UpdatePassword=functions.UpdatePassword;
 const UserExits=functions.UserExits;
@@ -20,7 +20,8 @@ const GetSinglePlayerWins=functions.GetSinglePlayerWins;
 const GetSinglePlayerGames=functions.GetSinglePlayerGames;
 const GetMultiPlayerWins=functions.GetMultiPlayerWins;
 const GetMultiplayerGames=functions.GetMultiplayerGames;
-
+const ConnectToDatabase = functions.ConnectToDatabase;
+/*
 const uri = "mongodb+srv://Software3:Sprinters@cluster0.nuwj9.mongodb.net/Guessle?retryWrites=true&w=majority";
 
 const app = express()
@@ -50,8 +51,10 @@ app.get("/", (req, res) => {
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => app.listen(3000))
     .catch(err => console.log(err));
+/**/
+ConnectToDatabase();
 
-ValidLogin('Sprint3','8').then(response=> 
+ValidLogin('Sprint3','4').then(response=> 
     {let checked=response
      console.log(checked)
     });
