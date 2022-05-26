@@ -56,10 +56,24 @@ h1 {
     
   }
   .closeButton{
-    background-color: red;
+    background-color: lightblue;
     text-align: center;
     position: absolute;
     bottom: 3rem;
     right:3rem;
     border-radius: 2px;
+  }
+
+  .giveUpButton{
+    display: flex;
+    align-items: center;
+    background-color: red;
+    text-align: center;
+    position: relative;
+    border-radius: 2px;
+    font-size: larger;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    flex-direction: column;
   }

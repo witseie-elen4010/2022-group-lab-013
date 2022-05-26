@@ -10,7 +10,7 @@ let word = Guessword();
 
 function NewWord(){
     word = Guessword()
-    console.log(word)
+    //console.log(word)
 }
 
 function UICorrectnessFeedback(guessedWord){
