@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    background-color: black;
+    background: url(../../Public/Images/guessle\ background\ 5.jpg);
+  }
+
+  .detail-box {
+     border: 2px solid rgb(255, 255, 255); 
+    border-radius: 5px;
+    margin: 2px; 
+    height: 350px;
+    width: 350px;
+    align-self: center;
+
+    position: absolute;
+    top: 40%;
+    background-color: whitesmoke;
+  }
+
+  .heading{
+    color: solid rgb(6, 24, 70);
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    background-color:  rgb(255, 255, 255); 
+    border-radius: 5px; 
+    padding: 7px 30px 7px 15px;
+  }
+
+  .detail-box h3{
+    color: solid rgb(6, 24, 70);
+    font-size: 1.7rem;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .detail-box input[type="text"],.detail-box input[type="password"] {
+    border: 2px solid rgb(6, 24, 70); 
+    border-radius: 5px;
+    margin: 10px auto;
+
+    height: 1.5rem;
+    width: 15rem;
+
+    text-align: center;
+  }
+
+  .detail-box button[type="submit"] {
+    text-align: center;
+    border: 1px solid rgb(167, 102, 53);
+    border-radius: 5px;
+    display: flex;
+    height: 1.5rem;
+    width: 4rem;
+    
+
+    margin: 30px auto;
+    background-color: burlywood;
+    color: rgb(13, 12, 12);
+  }
+
+  .detail-box button[type="submit"]:hover {
+      background: #edd4a4;
+
+
+  #instructionList{
+    display: flex;
+    /* width: 100%; */
+  padding: 50px 0;
+  text-align: center;
+  background-color: #f5e7cc;
+  margin-top: 20px;
+  }
+
+  .div1{
+    text-align: centre;  
+    margin: 2px; 
+    height: 350px; 
+    width: 350px;
+
+  }
+
