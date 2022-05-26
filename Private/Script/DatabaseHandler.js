@@ -1,3 +1,7 @@
+///     Install before use
+///     npm install mongoose express body-parser nodemon
+/////=> to run script using nodemon=> npx nodemon index.js
+
 const { model } = require("mongoose");
 
 const PlayerSheet = require('./PlayerSheet.js');
