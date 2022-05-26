@@ -7,7 +7,9 @@ res.sendFile(path.join(__dirname,'Public', 'View', 'loginPage.html'))
 })
 
 gameRouter.get('/homePage', function (req, res) {
-res.sendFile(path.join(__dirname,'Public', 'View', 'homePage.html'))
-})
+    res.sendFile(path.join(__dirname,'Public', 'View', 'homePage.html'))
+    })
+    
+
 
 module.exports = gameRouter
