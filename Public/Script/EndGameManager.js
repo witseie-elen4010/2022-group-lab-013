@@ -22,6 +22,14 @@ function Restart(endGamePopUp){
     gameOverText =''
     endGamePopUp.style.display = 'none'
 }
+
+function GiveUp(answer,endGamePopUp,popUpText){
+    endFlag = true
+    gameOverText = `You have given up after ${turns} tries \n The correct word is \n ${answer.toUpperCase()}`
+    popUpText.textContent = gameOverText
+    OpenForm(endGamePopUp)
+    return endFlag
+}
 function IncreaseTurnCounter(){
     turns+=1
     return turns
@@ -63,9 +71,8 @@ function EndGameCheck(rightnessArray,answer,endGamePopUp,popUpText){
         //gameOverText = `You have given up in ${turns} tries \n The correct word is \n ${answer.toUpperCase()}`
     }
     
-    
     return endFlag
 }
 
-export {EndGameCheck,IncreaseTurnCounter,CloseForm,Restart}
+export {EndGameCheck,IncreaseTurnCounter,CloseForm,Restart,GiveUp}
 

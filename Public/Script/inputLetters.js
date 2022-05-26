@@ -8,16 +8,19 @@ import {UICorrectnessFeedback} from './Interfacescript.js'
 import{GetAnswer} from './Interfacescript.js'
 import{NewWord} from './Interfacescript.js'
 import{IsWord} from './GuessWords.js'
-import{IncreaseTurnCounter} from './EndGameManager.js'
+import{GiveUp, IncreaseTurnCounter} from './EndGameManager.js'
 import{EndGameCheck} from './EndGameManager.js'
 import{CloseForm} from './EndGameManager.js'
 import{Restart} from './EndGameManager.js'
+
 
 let currentletterBlock = document.getElementById('currentBlock')
 let popUpText = document.getElementById('GameOver-Text')
 let endGamePopUp = document.getElementById('GameOver-Popup')
 const reButton = document.getElementById('restartButton')
-let closeButton = document.getElementById('closeButton')
+const closeButton = document.getElementById('closeButton')
+const giveUpButton = document.getElementById('giveUpButton')
+
 let answer = GetAnswer()
 document.addEventListener('keyup', inputLetter);        //event:user releases key
 
@@ -67,7 +70,6 @@ function inputLetter(event){
                 currentTurn  = IncreaseTurnCounter()
                 //console.log('checkAnswer',answer)
                 endFlag = EndGameCheck(boxCoulourCorrectnessArray,answer,endGamePopUp,popUpText)
-                //console.log(endFlag)
             }
             else{
                 //console.log('not a valid Guessle word');
@@ -98,3 +100,7 @@ reButton.addEventListener('click',function(){
     
 })
 
+giveUpButton.addEventListener('click',function(){
+
+        endFlag = GiveUp(answer,endGamePopUp,popUpText) 
+})
