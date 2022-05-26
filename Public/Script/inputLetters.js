@@ -64,12 +64,10 @@ function inputLetter(event){
             }
             else{
                 //console.log('not a valid Guessle word');
+                alert('Not a valid Guessle word')
                 guessesWord=[]                                              
                 columnNo=0                                                  
                 populateRow (guessesWord, rowNo)
-            }
-            
-            
+            }            
         }
-        
 }
