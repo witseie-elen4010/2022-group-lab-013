@@ -2,28 +2,40 @@
 
 import {populateRow} from './boardScript.js'
 import {changeBoxColour} from './boardScript.js'
+import {ResetGameBoard} from './boardScript.js'
 //import {UICorrectnessFeedback} from '../Interfacescript.js'
 import {UICorrectnessFeedback} from './Interfacescript.js'
+import{GetAnswer} from './Interfacescript.js'
+import{NewWord} from './Interfacescript.js'
 import{IsWord} from './GuessWords.js'
-import{IncreaseTurnCounter} from './checkGameOver.js'
-import{EndGameCheck} from './checkGameOver.js'
-import{WinCheck} from './checkGameOver.js'
+import{GiveUp, IncreaseTurnCounter} from './EndGameManager.js'
+import{EndGameCheck} from './EndGameManager.js'
+import{CloseForm} from './EndGameManager.js'
+import{Restart} from './EndGameManager.js'
+
 
 let currentletterBlock = document.getElementById('currentBlock')
+let popUpText = document.getElementById('GameOver-Text')
+let endGamePopUp = document.getElementById('GameOver-Popup')
+const reButton = document.getElementById('restartButton')
+const closeButton = document.getElementById('closeButton')
+const giveUpButton = document.getElementById('giveUpButton')
 
+let answer = GetAnswer()
 document.addEventListener('keyup', inputLetter);        //event:user releases key
 
 let guessesWord=[]                                      //array with guessed letters
 let rowNo=0;
 let columnNo = 0;
 let currentTurn = 0
-let winFlag = false
+let endFlag = false
+
 function inputLetter(event){
     var keyValue = event.key
     var keyCodeValue = event.code
 	
     //user entry must be an alphabet
-    if(event.code >= "KeyA" && event.code<= "KeyZ" && columnNo<5 && currentTurn <6 && winFlag === false){
+    if(event.code >= "KeyA" && event.code<= "KeyZ" && columnNo<5 && currentTurn <6 && endFlag === false){
         columnNo++
     
         currentletterBlock=keyValue.toUpperCase()
@@ -46,7 +58,7 @@ function inputLetter(event){
             }
 
             let boxCoulourCorrectnessArray = UICorrectnessFeedback(guessesWord);
-            console.log(guessesWord);
+            //console.log(guessesWord);
             if(IsWord(guessesWord)){
                 for (let j = 0; j < 5; j++) {
                     changeBoxColour(boxCoulourCorrectnessArray[j],rowNo,j)
@@ -56,17 +68,39 @@ function inputLetter(event){
                 rowNo++
                 populateRow (guessesWord, rowNo)
                 currentTurn  = IncreaseTurnCounter()
-                winFlag = WinCheck(boxCoulourCorrectnessArray)
-                EndGameCheck()
+                //console.log('checkAnswer',answer)
+                endFlag = EndGameCheck(boxCoulourCorrectnessArray,answer,endGamePopUp,popUpText)
             }
             else{
-                console.log('not a valid Guessle word');
+                //console.log('not a valid Guessle word');
+                setTimeout(function(){alert('Not a valid Guessle word, please try again')})
                 guessesWord=[]                                              
                 columnNo=0                                                  
                 populateRow (guessesWord, rowNo)
-            }
-            
-            
+            }            
         }
         
 }
+
+closeButton.addEventListener('click',function(){
+    CloseForm(endGamePopUp)
+})
+
+reButton.addEventListener('click',function(){
+    guessesWord=[]  
+    rowNo=0;
+    columnNo = 0;
+    currentTurn = 0
+    endFlag = false
+    NewWord()
+    answer = GetAnswer()
+    //console.log('newgame',answer)
+    ResetGameBoard()
+    Restart(endGamePopUp)
+    
+})
+
+giveUpButton.addEventListener('click',function(){
+
+        endFlag = GiveUp(answer,endGamePopUp,popUpText) 
+})

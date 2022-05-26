@@ -15,7 +15,21 @@ function GameBoardInitialization () {
     }
     gameBoard.appendChild(wordContainer)  //Add wordContainer as a child element of the board
   }
-  console.log('Board Initialised')  //Log message used for testing
+  //console.log('Board Initialised')  //Log message used for testing
+}
+
+function ResetGameBoard(){
+  let gameBoard = document.getElementById('game-board')
+  let word = Array.from(gameBoard.children)
+  //console.log(word)
+  //console.log(word.length)
+  for(let i = 0;i < word.length ;i++){
+      let letters = Array.from(word[i].children)
+      for(let j = 0; j < 5;j++){
+        letters[j].textContent =''
+        ChangeLetterContainerColour('',i,j)
+      }
+  }
 }
 
 //Function to populate a given wordContainer with a given word
@@ -46,6 +60,9 @@ function ChangeLetterContainerColour (boxCorrectnessStatus, guessNo, letterNo) {
   if (boxCorrectnessStatus === 'correct') {
     letterContainer.style.backgroundColor = 'green' //Green means the letter is in word and correct position
   }
+  else if(boxCorrectnessStatus ===''){
+    letterContainer.style.backgroundColor = 'white'
+  }
 }
 
 //Initialize the board
@@ -54,3 +71,4 @@ GameBoardInitialization()
 export {GameBoardInitialization as initBoard}
 export {UpdateWordContainer  as populateRow}
 export {ChangeLetterContainerColour as changeBoxColour}
+export {ResetGameBoard}

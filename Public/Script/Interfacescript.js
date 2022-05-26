@@ -8,9 +8,17 @@ let word = Guessword();
 
 //console.log(CheckLetterInWord(testWord,word));
 
-function UICorrectnessFeedback(guessedWord){
-    let check=CheckLetterInWord(guessedWord,word);
-    return check;
+function NewWord(){
+    word = Guessword()
+    //console.log(word)
 }
 
-export {UICorrectnessFeedback};
+function UICorrectnessFeedback(guessedWord){
+    let check=CheckLetterInWord(guessedWord,word);
+    return check
+}
+
+function GetAnswer(){
+    return word
+}
+export {UICorrectnessFeedback,GetAnswer,NewWord};
