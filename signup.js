@@ -1,16 +1,24 @@
-let button = document.getElementById("loginButton")
+const functions = require('./DatabaseHandler.js');
+const ConnectToDatabase = functions.ConnectToDatabase;
+const ValidLogin = functions.ValidLogin;
+const AddnewPlayer = functions.AddnewPlayer;
+const UserExits=functions.UserExits;
 
-button.addEventListener('click', function(){
-  var username = document.getElementById("playerUsername")
-  var password = document.getElementById("playerPassword")
-  var verifyPassword = document.getElementById("playerPasswordCheck")
+let button = document.getElementById("loginButton");
 
-if(password.value !== verifyPassword.value){
-    alert("Passwords do not match")
-}else{
-    if(username.value == "Group13" && password.value == "password"){
-        alert("Loading")
-    }else{
-        alert("Incorrect username or password")
-    }}
+button.addEventListener('click', function () {
+  ConnectToDatabase();
+
+  var username = document.getElementById("playerUsername");
+  var password = document.getElementById("playerPassword");
+
+  UserExits(username).then(response => {
+    let checked = response;
+    if (checked) {
+        AddnewPlayer(username, password)
+    } else {
+      alert("Username exits");
+    }
+  });
+
 })
