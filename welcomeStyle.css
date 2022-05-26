@@ -64,4 +64,22 @@ body {
 
   .detail-box button[type="submit"]:hover {
       background: #edd4a4;
-  } 
+
+
+  #instructionList{
+    display: flex;
+    /* width: 100%; */
+  padding: 50px 0;
+  text-align: center;
+  background-color: #f5e7cc;
+  margin-top: 20px;
+  }
+
+  .div1{
+    text-align: centre;  
+    margin: 2px; 
+    height: 350px; 
+    width: 350px;
+
+  }
+
