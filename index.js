@@ -15,6 +15,8 @@ console.log('Express server running on port', port)
 //http://127.0.0.1:3000/SinglePlayer for checkingno
 
 //Test MongoDb
+/*
 const functions = require('./Private/Script/DatabaseHandler');
 const ConnectToDatabase = functions.ConnectToDatabase;
 ConnectToDatabase();
+*/
