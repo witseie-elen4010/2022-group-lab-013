@@ -1,5 +1,3 @@
-
-
 let button = document.getElementById("instructionBtn")
 button.onclick=function(){instructions()}
 
@@ -12,12 +10,12 @@ function instructions(){
   }
 }
 
-let backButton = document.getElementById("backButton")
-backButton.addEventListener('click', function(){
-  window.location.href='../View/loginPage.html'
+let logoutButton = document.getElementById("logoutButton")
+logoutButton.addEventListener('click', function(){
+  window.location.href='/Public/View/loginPage.html';
 })
 
 let singlePlayerButton = document.getElementById("singlePlayerButton")
-backButton.addEventListener('click', function(){
-  window.location.href='../View/SinglePlayer.html'
+singlePlayerButton.addEventListener('click', function(){
+  window.location.href='/Public/View/SinglePlayer.html';
 })
