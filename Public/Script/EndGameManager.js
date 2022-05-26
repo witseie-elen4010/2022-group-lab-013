@@ -7,7 +7,7 @@ let gameOverText =''
 
 function OpenForm(endGamePopUp){
     //console.log('opening')
-    endGamePopUp.style.display ='block'
+    endGamePopUp.style.display ='flex'
 }
 
 function CloseForm(endGamePopUp){
@@ -41,15 +41,15 @@ function EndGameCheck(rightnessArray,answer,endGamePopUp,popUpText){
 
     if(winFlag === true){
         gameOverText = `You have won in ${turns} tries\n The correct word is \n ${answer.toUpperCase()}`
-            //setTimeout(function(){alert(gameOverText)
+            //setTimeout(function(){alert(gameOverText))
             
         endFlag = true
-        console.log("win",endFlag)
+        //console.log("win",endFlag)
             }
         
     if (turns === 6 && winFlag === false){
         gameOverText = `Game Over \n The correct word is \n ${answer.toUpperCase()}`
-            //setTimeout(function(){alert(gameOverText)
+            //setTimeout(function(){alert(gameOverText))
             
             endFlag = true
             console.log("gameover",endFlag)
