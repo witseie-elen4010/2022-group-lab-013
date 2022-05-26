@@ -19,3 +19,11 @@ let singlePlayerButton = document.getElementById("singlePlayerButton")
 singlePlayerButton.addEventListener('click', function(){
   window.location.href='/Public/View/SinglePlayer.html';
 })
+
+
+let multiPlayerButton = document.getElementById("multiPlayerButton")
+multiPlayerButton.addEventListener('click', function(){
+ alert('Error 404 ')
+})
+
+
