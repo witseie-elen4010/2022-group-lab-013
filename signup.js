@@ -14,7 +14,7 @@ button.addEventListener('click', function () {
 
   UserExits(username).then(response => {
     let checked = response;
-    if (checked) {
+    if (checked==false) {
         AddnewPlayer(username, password)
     } else {
       alert("Username exits");
