@@ -1,0 +1,55 @@
+#### Preparation:
+- Date:2022/05/27
+- Participants:FalseCrystal,HyChriFo,Cynthiack,Keowa-1877616,TTRasemana
+- Product owner:  @stephenlevitt
+- Team members: @FalseCrystal,@HyChriFo,@Cynthiack,@Keowa-1877616,@TTRasemana
+
+#### 2022-group-lab-013
+#### Scrum master: @HyChriFo
+
+#### Project Goal
+Develop a multiplayer word-guessing game based on Wordle, using NOde.js and hosted on Azure.
+
+#### Sprint 2 goal
+~Users can log in 
+~Users can go to single player mode from home screen
+~Users can log out from the home page
+~Game has home page for users to navigate from
+~Users can play singleplayer
+~Users can use virtual keyboard for input
+~Users Can give up
+~Game will notify user if word input is not valid
+~Users can restart the game
+~At the end of the game the correct word is displayed to the user
+~Game tells players whether they win or lose
+
+The achieved website is: https://guessle.azurewebsites.net/
+
+#### Duration of Sprint: 1 week
+
+#### Moderation
+#Issue 26 and 27 are not implemented and integrated into the program due to issues in how the page calls scripts
+#Issue 32, 33 and 36 were not implemented due to their reliance on the issues above
+#Issue 34 was implemented but is not yet integrated into main due to the abovementioned problems
+
+#### Successes
+~ Team integration is much improved
+~ Team is reviewing with meaningful comments and code changes
+~ Improved planning and utilisation of the scrum board
+~ The trunk-based development is now done properly 
+~ Sprint goals were identified in their entirety
+~ Sprint was done in 1 week as intended
+
+#### Failures
+~ People were assigned to user stories that rely on other individual's stories
+~ When team mates were struggling with stories, communication was lacking and thus adjustments couldn't be made in a timely fashion
+
+#### Improvements
+~ The quality of the architecture of the code needs to be improved. To avoid issues with require and html navigation, .jes files should be used
+~ Bootstrap needs to be used for the front-end
+
+#### Velocity for sprint
+
+- Possible points for 14 user stories: 41
+
+		#### Achieved Velocity for Sprint 2: 31
