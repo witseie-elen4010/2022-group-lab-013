@@ -23,7 +23,7 @@ singlePlayerButton.addEventListener('click', function(){
 
 let multiPlayerButton = document.getElementById("multiPlayerButton")
 multiPlayerButton.addEventListener('click', function(){
- alert('Error 404 ')
+  window.location.href='/Public/View/multiplayerModes.html';
 })
 
 
