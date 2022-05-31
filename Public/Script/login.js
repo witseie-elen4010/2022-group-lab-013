@@ -1,7 +1,14 @@
 
 let button = document.getElementById("loginButton")
 
-function validation() {
+function GuestLogin(){
+  document.getElementById("playerUsername").value = "Guest"
+  document.getElementById("playerPassword").value = "Guest"
+  alert('If you log in as a guest you can only play single player mode')
+  Validation();
+}
+
+function Validation() {
 
   var username = document.getElementById("playerUsername")
   var password = document.getElementById("playerPassword")
@@ -17,6 +24,9 @@ function validation() {
   if (username.value === '' || password.value === '') {
     alert('Please fill in all fields');
   }
+}
 
-
+function Signup() {
+  document.getElementById("form_id").action = "signupPage"
+  document.getElementById("form_id").submit();
 }

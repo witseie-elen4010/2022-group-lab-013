@@ -17,6 +17,17 @@ gameRouter.get('/homePage', function (req, res) {
     res.render(path.join(__dirname, 'Public', 'View', 'homePage.ejs'))
 })
 
+////////////////////////////////////////
+gameRouter.get('/multiPlayerModes', function (req, res) {
+    res.render(path.join(__dirname, 'Public', 'View', 'multiplayerModes.ejs'))
+})
+gameRouter.get('/signupPage', function (req, res) {
+    res.render(path.join(__dirname, 'Public', 'View', 'signupPage.ejs'))
+})
+gameRouter.get('/SinglePlayer', function (req, res) {
+    res.render(path.join(__dirname, 'Public', 'View', 'SinglePlayer.ejs'))
+})
+////////////////////////////////////////
 const port = process.env.PORT || 3000
 app.listen(port)
 console.log('Express server running on port', port)

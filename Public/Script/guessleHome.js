@@ -1,7 +1,7 @@
 let button = document.getElementById("instructionBtn")
-button.onclick=function(){instructions()}
+//button.onclick = instructions();
 
-function instructions(){
+function instructions() {
   var popUp = document.getElementById("instructionList");
   if (popUp.style.display === "none") {
     popUp.style.display = "block";
@@ -10,20 +10,18 @@ function instructions(){
   }
 }
 
-let logoutButton = document.getElementById("logoutButton")
-logoutButton.addEventListener('click', function(){
-  window.location.href='/Public/View/loginPage.html';
-})
+function ToSinglePlayerPage() {
+  document.getElementById("single_id").action = "SinglePlayer"
+  document.getElementById("single_id").submit();
+}
 
-let singlePlayerButton = document.getElementById("singlePlayerButton")
-singlePlayerButton.addEventListener('click', function(){
-  window.location.href='/Public/View/SinglePlayer.html';
-})
+function ToMultiPlayerPage() {
+  document.getElementById("multi_id").action = "multiplayerModes"
+  document.getElementById("multi_id").submit();
+}
 
-
-let multiPlayerButton = document.getElementById("multiPlayerButton")
-multiPlayerButton.addEventListener('click', function(){
-  window.location.href='/Public/View/multiplayerModes.html';
-})
-
+function ToLoginPage() {
+  document.getElementById("logout_id").action = "loginPage"
+  document.getElementById("logout_id").submit();
+}
 
