@@ -5,11 +5,9 @@ button.addEventListener('click', function () {
   var username = document.getElementById("playerUsername")
   var password = document.getElementById("playerPassword")
   if (username.value == "Guest" && password.value == "Guest") {
-      window.location.href ='/Public/View/homePage.html';
+        window.location.href ="homePage";
+      } else {
+        window.location.href ="loginPage";
+        alert('Wrong username or password');
       }
-      else
-      {
-        alert('Page not found')
-      }
-
 })
