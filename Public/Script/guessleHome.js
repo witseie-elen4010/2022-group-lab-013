@@ -21,7 +21,7 @@ function ToMultiPlayerPage() {
 }
 
 function ToLoginPage() {
-  document.getElementById("logout_id").action = "loginPage"
+  document.getElementById("logout_id").action = "/"
   document.getElementById("logout_id").submit();
 }
 
