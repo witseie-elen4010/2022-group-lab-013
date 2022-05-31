@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Guessle Login Page</title>
+
+        <link rel="stylesheet" href="/Public/css/welcomeStyle.css">
+    </head>
+    <body>
+        <script type="text/javascript" src="../../Public/Script/login.js"></script>
+        <div class="heading"> Guessle Game</div>
+        <br>
+
+        <form class = "detail-box" id = "form_id" >
+            <h3>
+                WELCOME
+            </h3>
+            <h4>
+                Log in or Sign up
+            </h4>
+
+            <input type = "text" name="" placeholder="Enter Username" id = "playerUsername">
+            <input type = "password" name="" placeholder="Enter Password" id = "playerPassword">
+            <br>
+            <input type="button" value = "Log in" onclick = "Validation()">
+            <h4>
+                If you have not registered before, just sign up below
+            </h4>
+            <input type="button" value = "Sign up" onclick = "Signup()">
+            <h4>
+                Or log in as Guest
+            </h4>
+            <input type="button" value = "Log in as guest" onclick = "GuestLogin()">
+
+        </form>
+        
+
+    </body>
+</html>

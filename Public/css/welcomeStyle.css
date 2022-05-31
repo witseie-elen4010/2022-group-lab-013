@@ -8,16 +8,17 @@ body {
   }
 
   .detail-box {
-     border: 2px solid rgb(255, 255, 255); 
+     border: 4px solid rgb(61, 180, 193); 
     border-radius: 5px;
     margin: 2px; 
-    height: 350px;
+    height: 440px;
     width: 350px;
     align-self: center;
-
+    
     position: absolute;
-    top: 40%;
-    background-color: whitesmoke;
+    top: 20%;
+    background: opa;
+    background-color: rgba(23, 114, 122, 0.95)
   }
 
   .heading{

@@ -7,11 +7,12 @@
         <link rel="stylesheet" href="/Public/css/welcomeStyle.css">
     </head>
     <body>
+        <script type="text/javascript" src="../../Public/Script/guessleHome.js"></script>
         <div class="heading">Guessle Game</div>
         <br>
         <br>
         <div>
-            <button onclick= "" id="instructionBtn">Instructions</button>
+            <button onclick= "instructions()" id="instructionBtn">Instructions</button>
             <div id="instructionList" style="display: none;">
                 You have six chances to guess the six-letter word.
     
@@ -19,20 +20,19 @@
                 
                 Letter tiles turn green for correct letter in correct place. Letter tiles turn yellow for correct letter in incorrect place. Letter tiles trun grey for incorrect letters
              </div>
-        </div>
+        </div>  
         <br>
+        <form class = "" id = "single_id">
+            <input type="button" value = "Single Player" id="singlePlayerButton" onclick = "ToSinglePlayerPage()">
+        </form>
         <br>
-        <div>
-            <button type="submit" id="singlePlayerButton">Single Player</button>
-        </div>
+        <form class = "" id = "multi_id">
+            <input type="button" value ="Multiple Players" id="multiPlayerButton" onclick = "ToMultiPlayerPage()">
+        </form>
         <br>
-        <div>
-            <button type="submit" id="multiPlayerButton">Multiple Players</button>
-        </div>
-        <br>
-        <div>
-            <button type="submit" id="logoutButton">Logout</button>
-        </div>
-        <script defer type="module" src="/Public/Script/guessleHome.js"></script>
+        <form class = "" id = "logout_id">
+            <input type="button" value = "Logout >:(" id="logoutButton" onclick = "ToLoginPage()">
+        </form>
+        
     </body>
 </html>
