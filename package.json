@@ -2,7 +2,8 @@
   "dependencies": {
     "ejs": "^3.1.8",
     "express": "4.18.1",
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "simple-keyboard-layouts": "^3.1.124"
   },
   "devDependencies": {
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
