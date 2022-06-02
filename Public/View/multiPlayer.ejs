@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Guessle</title>
+
+        <link rel="stylesheet" type="text/css" href="/Public/css/style.css">
+    </head>
+    <body>
+        <h1> Multiplayer Guessle </h1>  
+
+            <div class="column" id="myBoard">
+                <div id="game-board"></div>
+                    
+                    <div id="currentBlock"></div>
+                    <form id = "GameOver-Popup" class="popUp-container">
+                        <h1>Score</h1>
+                        <p id="GameOver-Text"></p>    
+                        <button type="button" class="restartButton" id="restartButton">Try Again</button>
+                        <button type="button" class="closeButton" id="closeButton">Close</button>
+                    </form>
+                    <button type="button" class="giveUpButton" id="giveUpButton">Give Up</button>
+                    
+                    <script type="module" src="/Public/Script/multiplayerMode2.js"></script>
+                    <script type="module" src="/Public/Script/boardScript.js" ></script>
+                    <script type="module" src="/Public/Script/inputLetters.js"></script>
+
+            </div>
+                
+            <div class="column" id="multiBoard">
+
+                <div id="game-board"></div>
+                <div id="currentBlock"></div>
+                <form id = "GameOver-Popup" class="popUp-container">
+                    <h1>Score</h1>
+                    <p id="GameOver-Text"></p>    
+                    <button type="button" class="restartButton" id="restartButton">Try Again</button>
+                    <button type="button" class="closeButton" id="closeButton">Close</button>
+                    <button type="button" class="giveUpButton" id="giveUpButton">Give Up</button>
+                </form>
+
+                <script type="module" src="/Public/Script/multiplayerMode2.js"></script>
+                <script type="module" src="/Public/Script/boardScript.js" ></script>
+                <script type="module" src="/Public/Script/inputLetters.js"></script>
+
+            </div>
+
+
+    </body>
+
+</html>

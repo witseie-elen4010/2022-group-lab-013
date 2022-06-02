@@ -7,6 +7,12 @@ h1 {
     align-items: center;
     flex-direction: column;
   }
+
+  #game-board2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
   
   .letter-box {
     border: 2px solid grey;
@@ -111,4 +117,10 @@ h1 {
     right:3rem;
     border-radius: 2px;
 
+  }
+
+  .column {
+    float: left;
+    width: 50%;
+    
   }

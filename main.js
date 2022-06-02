@@ -21,6 +21,9 @@ gameRouter.get('/homePage', function (req, res) {
 gameRouter.get('/multiPlayerModes', function (req, res) {
     res.render(path.join(__dirname, 'Public', 'View', 'multiplayerModes.ejs'))
 })
+gameRouter.get('/multiPlayer', function (req, res) {
+    res.render(path.join(__dirname, 'Public', 'View', 'multiPlayer.ejs'))
+})
 gameRouter.get('/signupPage', function (req, res) {
     res.render(path.join(__dirname, 'Public', 'View', 'signupPage.ejs'))
 })
