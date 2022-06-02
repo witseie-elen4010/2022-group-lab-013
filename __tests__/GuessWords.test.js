@@ -12,11 +12,10 @@ test('Check if length of random guess word is 5', () => {
     expect(Guessword().length).toBe(5);
   });
   
-
   test('Check if the word is in the "databases" of words', () => {
     expect(IsWord("above")).toBeTruthy();
   })
-
+  
   test('Check if the word is not  in the "databases" of words', () => {
     expect(IsWord("Yeets")).not.toBeTruthy();
   })
