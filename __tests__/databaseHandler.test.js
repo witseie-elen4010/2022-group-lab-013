@@ -8,9 +8,6 @@ test('Check if user is in database', () => {
     expect(func.UserExits('Guest')).toBeTruthy();;
   });  
 
-
-  
-
   
   test('Check if login is valid', () => {
     func.ConnectToDatabase()
