@@ -65,7 +65,7 @@ body {
 
   .detail-box button[type="submit"]:hover {
       background: #edd4a4;
-
+  }
 
   #instructionList{
     display: flex;
