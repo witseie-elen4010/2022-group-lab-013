@@ -8,8 +8,6 @@ const funcs=require('../Public/Script/GuessWords')
 const Guessword=funcs.Guessword;
 const IsWord= funcs.IsWord;
 
-
-
 test('Check if length of random guess word is 5', () => {
     expect(Guessword().length).toBe(5);
   });
