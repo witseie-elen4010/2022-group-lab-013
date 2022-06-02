@@ -25,7 +25,17 @@ function Restart(endGamePopUp){
 
 function GiveUp(answer,endGamePopUp,popUpText){
     endFlag = true
-    gameOverText = `You have given up after ${turns} tries \n The correct word is \n ${answer.toUpperCase()}`
+    
+
+    if(turns>1)
+    {
+     gameOverText = `You have given up after ${turns} tries \n The correct word is \n ${answer.toUpperCase()}`
+    }
+    else
+    {
+        gameOverText = `You have given up after ${turns} try \n The correct word is \n ${answer.toUpperCase()}`
+    }
+    
     popUpText.textContent = gameOverText
     OpenForm(endGamePopUp)
     return endFlag

@@ -29,5 +29,6 @@ function IsWord(inputWordArr) {
     return false;
 }
 
-export { Guessword,IsWord };
+//cexport { Guessword,IsWord };
+module.exports={Guessword,IsWord}
 

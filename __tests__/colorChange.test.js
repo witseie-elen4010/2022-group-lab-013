@@ -1,6 +1,6 @@
 /* eslint-env jest */
 'use strict'
-const changeColor = require('../colorChange')
+const changeColor = require('../Public/Script/colorChange')
 
 //jest.spyon(document, 'getElementById')
 describe('Color Change Function', () => {
