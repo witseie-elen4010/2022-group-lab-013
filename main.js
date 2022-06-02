@@ -27,6 +27,11 @@ gameRouter.get('/signupPage', function (req, res) {
 gameRouter.get('/SinglePlayer', function (req, res) {
     res.render(path.join(__dirname, 'Public', 'View', 'SinglePlayer.ejs'))
 })
+
+gameRouter.get('/forgotPasswordPage', function (req, res) {
+    res.sendFile(path.join(__dirname, 'Public', 'View', 'forgotPasswordPage.html'))
+})
+
 ////////////////////////////////////////
 const port = process.env.PORT || 3000
 app.listen(port)
