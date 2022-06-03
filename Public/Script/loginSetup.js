@@ -1,8 +1,8 @@
 const loginButton = document.getElementById('LoginSubmit')
 
-loginButton.addEventListener('click', function(){
-    let userName = "Guest";
-      fetch('/Login/Login', {
+loginButton.addEventListener('click', async function(){
+    //let userName = "Guest";
+      fetch('/Login/login', {
         method: 'post',
         headers: {
           Accept: 'application/json',
@@ -12,8 +12,7 @@ loginButton.addEventListener('click', function(){
           userName: 'Sprint3',
           userPassword: '4'
         })
-      }).then(data=>data.json()).then(data=> {
-        console.log(data);
+      }).then(data => {
         window.location.replace(data.url);
     })
 });

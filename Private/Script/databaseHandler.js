@@ -42,18 +42,20 @@ async function UserExits(name) {
 }
 
 async function ValidLogin(name, password) {
-    ConnectToDatabase();
+    await ConnectToDatabase();
     const newPlayersheet = await PlayerSheet.where('Username').equals(name).where('Password').equals(password);
         console.log('Player result from database');
    if (newPlayersheet.length == 0) {
         console.log('Wrong password');
+        DisconnectFromDatabase();
         return false
     }
+
     else{
-        console.log('Right password'); 
+        console.log('Right password');
+        DisconnectFromDatabase();
         return true
     }
-    DisconnectFromDatabase();
 }
 
 async function UpdatePassword(name, password) {
@@ -166,7 +168,7 @@ async function ConnectToDatabase() {
 }
 
 async function DisconnectFromDatabase() {
-    db.disconect();
+    db.disconnect();
     console.log('disconnect successful')
 }
 
