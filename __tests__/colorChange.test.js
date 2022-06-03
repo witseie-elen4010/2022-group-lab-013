@@ -1,9 +1,9 @@
 /* eslint-env jest */
 'use strict'
-const changeColor = require('../Public/Script/colorChange')
+//const changeColor = require('../Public/Script/colorChange')
 
 //jest.spyon(document, 'getElementById')
-describe('Color Change Function', () => {
+describe.skip('Color Change Function', () => {
 
   test('Color Changes Green for matched letter', () => {
   let testWord = document.createElement('div') 
