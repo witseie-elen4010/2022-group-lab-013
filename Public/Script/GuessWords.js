@@ -30,4 +30,3 @@ function IsWord(inputWordArr) {
 }
 
 export { Guessword,IsWord };
-

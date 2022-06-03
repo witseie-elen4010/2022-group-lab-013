@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="/Public/css/welcomeStyle.css">
     </head>
     <body>
-        <script type="text/javascript" src="../../Public/Script/login.js"></script>
         <div class="heading"> Guessle Game</div>
         <br>
 
@@ -22,18 +21,11 @@
             <input type = "text" name="" placeholder="Enter Username" id = "playerUsername">
             <input type = "password" name="" placeholder="Enter Password" id = "playerPassword">
             <br>
-            <input type="button" value = "Log in" onclick = "Validation()">
-            <h4>
-                If you have not registered before, just sign up below
-            </h4>
-            <input type="button" value = "Sign up" onclick = "Signup()">
-            <h4>
-                Or log in as Guest
-            </h4>
-            <input type="button" value = "Log in as guest" onclick = "GuestLogin()">
+            <button type="submit" id = "LoginSubmit" >Login</button>
 
         </form>
         
 
     </body>
+    <script src = '/Public/Script/loginSetup.js'></script>
 </html>
