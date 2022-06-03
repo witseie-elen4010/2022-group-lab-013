@@ -1,0 +1,54 @@
+#### Preparation:
+- Date:2022/06/03
+- Participants:FalseCrystal,HyChriFo,Cynthiack,Keowa-1877616,TTRasemana
+- Product owner:  @stephenlevitt
+- Team members: @FalseCrystal,@HyChriFo,@Cynthiack,@Keowa-1877616,@TTRasemana
+
+#### 2022-group-lab-013
+#### Scrum master: @HyChriFo
+
+#### Project Goal
+Develop a multiplayer word-guessing game based on Wordle, using NOde.js and hosted on Azure.
+
+#### Sprint 3 goal
+~Users can select multiplayer and navigate to multiplayer page
+~To make web-pages presentable to users
+~Users can see opponents boards' whilst playing multiplayer
+~Give users the ability to play in multiplayer mode
+~Users can guess the same word in multiplayer
+~Users can input the guessing word for opponents to guess in multiplayer mode
+~User can login as guests
+~Player can see their game statistics
+~Users can retrieve their password, if forgotten
+~At the end of multiplayer mode,opponents boards' with letters are shown
+~User can register for an account on the website
+
+The achieved website is: https://guessle.azurewebsites.net/
+
+#### Duration of Sprint: 1 week
+
+#### Moderation
+
+#Issues: 26,29,32,35,36,39,41,42 and 44 were held back due to database integration issues, hence will go onto backlog
+
+#### Successes
+~ Team integration is steady
+~ Team is reviewing with meaningful comments and code changes, using a review guide
+~ Improved planning and utilisation of the scrum board
+~ Sprint goals were identified in their entirety
+~ Sprint was done in 1 week as intended
+~ Improved communication
+
+#### Failures
+~Unable to complete the goals of the Sprint
+~Unable to solve key issues in architecture, that hindered production and deployment of features
+
+#### Improvements
+~ The quality of the architecture of the code needs to be improved. To avoid issues with require and html navigation, .jes files should be used
+~ Improvements in web architecture required to improved integration with the database 
+
+#### Velocity for sprint
+
+- Possible points for 13 user stories: 45
+
+		#### Achieved Velocity for Sprint 3: 8                 
