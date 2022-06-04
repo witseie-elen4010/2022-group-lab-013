@@ -9,26 +9,17 @@
         <link rel="stylesheet" type="text/css" href="/Public/css/style.css">
     </head>
     <body>
+        <script type="text/javascript" src="../../Public/Script/multiplayer.js"></script>
+        <h1> Guessle Game </h1>
         <h1> Game Modes </h1>  
 
-        <p id="numberOfPlayers" hidden><%= numberOfPlayers %></p>                   
-        <h1> Guessle Game </h1>
-
-        <!-- display board based on number of players -->
-        <% for (var i =1; i <= numberOfPlayers;   i++ ) { %>                            
-            <br/>
-            <%- include("../partials/board.ejs", {i: i}) %> 
-            
-            <% } %>
-
-
-        <form id = "multiMenu" class="menu-container">
-            <p id="WIP-Text">Multiplayer is currently a Work In Progress. The Buttons are place holders. Please come again later</p>
+        <form class = "menu-container" id = "multiPlayer_id">
             <p id="random-Mode-Description">Single Word mode: Players race against eachother to see who can figure out what the mystery word is. Players can monitor eachothers boards and progress but not the letters themselves</p>    
             <p id="Choose-Description">The Choose a Word mode: Players must give a random word that is the given to another player in the lobby. Players must guess their given word before the others to win</p>
-            <button type="button" class="Single-Word" id="SingleModeButton">Single Word Mode</button>
-            <button type="button" class="Choose-a-Word" id="ChooseWordModeButton">Choose a Word Mode</button>    
+            <input type="button" class="Single-Word" value ="Single-Word" id="multiPlayerGameButton" onclick = "ToMultiPlayerGamePage()">
+            <input type="button" class="Choose-a-Word" value ="Choose-a-Word" id="multiPlayerGameButton" onclick = "ToMultiPlayerGamePage()">
         </form>
+       
     </body>
 
 </html>

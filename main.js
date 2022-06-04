@@ -18,8 +18,11 @@ gameRouter.get('/homePage', function (req, res) {
 })
 
 ////////////////////////////////////////
+gameRouter.get('/multiplayerGame', function (req, res) {
+    res.render(path.join(__dirname, 'Public', 'View', 'multiplayerGame.ejs'), {numberOfPlayers: 3})
+})
 gameRouter.get('/multiPlayerModes', function (req, res) {
-    res.render(path.join(__dirname, 'Public', 'View', 'multiplayerModes.ejs'), {numberOfPlayers: 3})
+    res.render(path.join(__dirname, 'Public', 'View', 'multiplayerModes.ejs'))
 })
 gameRouter.get('/signupPage', function (req, res) {
     res.render(path.join(__dirname, 'Public', 'View', 'signupPage.ejs'))
