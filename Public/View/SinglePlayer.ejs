@@ -9,25 +9,13 @@
         <link rel="stylesheet" type="text/css" href="/Public/css/style.css">
     </head>
     <body>
-        <h1> Guessle Game </h1>
-        <div id="game-board">
+        <!-- <div id="game-board">
+        </div> -->
 
-        </div>
-        <script
-                src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"></script>
+        <p id="numberOfPlayers" hidden>1</p>
+        <h1> Guessle Game </h1>
+        <%- include("../partials/board.ejs", {i: ""}) %> 
         
-        <div id="currentBlock"></div>
-        <form id = "GameOver-Popup" class="popUp-container">
-            <h1>Score</h1>
-            <p id="GameOver-Text"></p>    
-            <button type="button" class="restartButton" id="restartButton">Try Again</button>
-            <button type="button" class="closeButton" id="closeButton">Close</button>
-        </form>
-        <button type="button" class="giveUpButton" id="giveUpButton">Give Up</button>
-        <script type="module" src="/Public/Script/boardScript.js" ></script>
-        <script type="module" src="/Public/Script/inputLetters.js"></script>
     </body>
 
 </html>
