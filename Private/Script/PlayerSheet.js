@@ -1,26 +1,26 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const PlayerSheetSchema = new mongoose.Schema({
-    Username: {
+  Username: {
     type: String,
-    required: true,
+    required: true
   },
   Password: {
     type: String,
-    required: true,
+    required: true
   },
   MultiplayerWins: {
-    type: Number,
+    type: Number
   },
   MultiplayerGames: {
-    type: Number,
+    type: Number
   },
   SingleplayerWins: {
-    type: Number,
+    type: Number
   },
   SingleplayerGames: {
-    type: Number,
-  },
-}, { timestamps: true });
+    type: Number
+  }
+}, { timestamps: true })
 
-module.exports = mongoose.model('PlayerSheet', PlayerSheetSchema);
+module.exports = mongoose.model('PlayerSheet', PlayerSheetSchema)

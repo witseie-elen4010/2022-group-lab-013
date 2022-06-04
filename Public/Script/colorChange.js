@@ -2,8 +2,8 @@
 
 function changeColor (element, flag) {
   if (!element) { throw Error('No Object to change color') }
-  if(!flag){throw Error('no status tag error')}
-  if(flag !== 'correct' && flag !== 'wrongPosition' && flag !== 'wrong' ){throw Error('wrong status tag')}
+  if (!flag) { throw Error('no status tag error') }
+  if (flag !== 'correct' && flag !== 'wrongPosition' && flag !== 'wrong') { throw Error('wrong status tag') }
   const target = element
   if (flag === 'correct') {
     target.style.backgroundColor = 'Green'
@@ -14,4 +14,4 @@ function changeColor (element, flag) {
   }
 }
 
-export {changeColor}
+export { changeColor }

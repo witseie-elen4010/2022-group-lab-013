@@ -1,34 +1,26 @@
 module.exports = class Turn {
+  constructor () {
+    this.RemainingTurns = 6
+  }
 
-    constructor() {
+  getRemainingTurns () {
+    return this.RemainingTurns
+  }
 
-        this.RemainingTurns = 6;
+  resetTurns () {
+    this.RemainingTurns = 6
+  }
+
+  CompleteTurn () {
+    this.RemainingTurns--
+  }
+
+  HasTurns () // turns status
+  {
+    if (this.RemainingTurns > 0) {
+      return true
+    } else {
+      return false
     }
-
-    getRemainingTurns() {
-        return this.RemainingTurns;
-    }
-
-    resetTurns() {
-        this.RemainingTurns = 6;
-    }
-
-    CompleteTurn() {
-        this.RemainingTurns--;
-    }
-
-    HasTurns()  //turns status
-    {
-        if (this.RemainingTurns > 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-
-
+  }
 }
-
-

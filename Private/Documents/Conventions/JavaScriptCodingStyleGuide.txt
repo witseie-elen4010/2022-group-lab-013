@@ -1,0 +1,28 @@
+Coding conventions were adapted from https://standardjs.com/#javascript-style-guide-linter-and-formatter
+===========================================================================
+Naming Conventions:
+-------------------
+Always use the same naming convention for all your code.
+
+Variable and function names written as camelCase
+Global variables written in UPPERCASE
+Constants written in UPPERCASE
+===========================================================================
+Statement rules:
+----------------
+Always put spaces around operators ( = + - * / ), and after commas
+The opening bracket should be positioned at the end of the first line.
+The opening bracket should be preceded by one space.
+Don't leave any leading spaces before the closing brackets.
+Using a semicolon at the end of a complex sentence is inappropriate.
+=========================================================================
+Object Rules:
+-------------
+A bracket should follow the object name on the same line.
+Each property should be separated by a colon and a space.
+String values should be enclosed in quotes, not numeric values.
+The last property-value pair does not need to be separated by a comma.
+Do not include leading spaces in the closing bracket.
+The definition of an object should always end with a semicolon
+
+==========================================================================

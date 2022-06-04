@@ -1,0 +1,21 @@
+Code Review Guide: Adapted from https://www.swarmia.com/blog/a-complete-guide-to-code-reviews/
+=====================================================================================================================
+Code reviews:
+------------
+Will be completed before every pull request by a different member in the team than whom who created the pull request
+Reviewer will focus on:
+	Functionality: Has the code behaved as the author likely intended it to? Has the code behaved as expected by the user?
+	Software design:Code design: Does the code fit the surrounding architecture and is well-designed?
+	Complexity: Is the code easy to understand and use by another developer?
+	Tests: Do the tests in the PR work and are well-designed?
+	Naming: Are variable, function, and other names descriptive?
+	Comments: Do the comments provide useful information?
+	Documentation: Have relevant docs been updated?
+Reviewer will leave a meaningful comment or will request detailed changes before approving the pull request
+Meeting will be held to resolve any merge conflicts
+====================================================================================================================
+
+
+
+
+
