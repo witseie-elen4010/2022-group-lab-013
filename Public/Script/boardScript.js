@@ -4,9 +4,11 @@
 function GameBoardInitialization (id) {
   let gameBoard = document.getElementById(`game-board${id}`) //gameBoard is of type HTMLElement
 
+
   for (let i = 0; i < 6; i++) { //Create 6 word containers
     let wordContainer = document.createElement('div') //wordContainer is of type HTMLElement
     wordContainer.className = 'letter-row'
+
 
     for (let j = 0; j < 5; j++) { //Create 5 letter container for each wordContainer
       let letterContainer = document.createElement('div') //letterContainer is of type HTMLElement
@@ -16,10 +18,12 @@ function GameBoardInitialization (id) {
     gameBoard.appendChild(wordContainer)  //Add wordContainer as a child element of the board
   }
   //console.log('Board Initialised')  //Log message used for testing
+
 }
 
 function ResetGameBoard(){
   let gameBoard = document.getElementById('game-board')
+
   let word = Array.from(gameBoard.children)
   //console.log(word)
   //console.log(word.length)
