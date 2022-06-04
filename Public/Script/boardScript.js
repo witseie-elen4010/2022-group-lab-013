@@ -1,30 +1,29 @@
 /* eslint-env jest */
 
 //Function to initializa game board
-function GameBoardInitialization () {
-  let gameBoard = document.getElementById('game-board') //gameBoard is of type HTMLElement
+function GameBoardInitialization (id) {
+  let gameBoard = document.getElementById(`game-board${id}`) //gameBoard is of type HTMLElement
+
 
   for (let i = 0; i < 6; i++) { //Create 6 word containers
     let wordContainer = document.createElement('div') //wordContainer is of type HTMLElement
     wordContainer.className = 'letter-row'
 
-        for (let j = 0; j < 5; j++) { //Create 5 letter container for each wordContainer
-        let letterContainer = document.createElement('div') //letterContainer is of type HTMLElement
-        letterContainer.className = 'letter-box'
-        wordContainer.appendChild(letterContainer)  //Add letterContainer as a child element of the current wordContainer
-        
-      //let gameBoard = document.getElementById('game-board') //gameBoard is of type HTMLElement
-      //console.log('Board Initialised')  //Log message used for testing
-    
+
+    for (let j = 0; j < 5; j++) { //Create 5 letter container for each wordContainer
+      let letterContainer = document.createElement('div') //letterContainer is of type HTMLElement
+      letterContainer.className = 'letter-box'
+      wordContainer.appendChild(letterContainer)  //Add letterContainer as a child element of the current wordContainer
     }
     gameBoard.appendChild(wordContainer)  //Add wordContainer as a child element of the board
   }
-  
+  //console.log('Board Initialised')  //Log message used for testing
+
 }
 
 function ResetGameBoard(){
   let gameBoard = document.getElementById('game-board')
-  
+
   let word = Array.from(gameBoard.children)
   //console.log(word)
   //console.log(word.length)
@@ -70,8 +69,16 @@ function ChangeLetterContainerColour (boxCorrectnessStatus, guessNo, letterNo) {
   }
 }
 
-//Initialize the board
-GameBoardInitialization()
+//Initialize the board 
+let numOfPlayers =  document.getElementById("numberOfPlayers").innerHTML;
+if(numOfPlayers > 1)
+
+
+for(let i = 1; i <= numOfPlayers; i++){                               //initalising board for multiplayer
+  GameBoardInitialization(i)
+}
+else
+GameBoardInitialization('')                                           //initalising board for single player
 //Export functions for use in other .js files
 export {GameBoardInitialization as initBoard}
 export {UpdateWordContainer  as populateRow}

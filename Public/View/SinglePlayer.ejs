@@ -3,42 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name = 'viewport',content = 'width=device-width, initial-scale=1'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Guessle</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" type="text/css" href="/Public/css/style.css">
-        
-        <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css"
-    />
     </head>
     <body>
-        <h1> Guessle Game </h1>
-        <div id="game-board">
 
-        </div>
-        <div class="container grid-lg mt-2 mb-2">
-            <div class="simple-keyboard"></div>
-          </div>
-        <script
-                src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"></script>
+        <p id="numberOfPlayers" hidden>1</p>
+        <h1> Guessle Game </h1>
+        <%- include("../partials/board.ejs", {i: ""}) %> 
         
-        <div id="currentBlock"></div>
-        <form id = "GameOver-Popup" class="popUp-container">
-            <h1>Score</h1>
-            <p id="GameOver-Text"></p>    
-            <button type="button" class="restartButton" id="restartButton">Try Again</button>
-            <button type="button" class="closeButton" id="closeButton">Close</button>
-        </form>
-        <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@3.4.102/build/index.min.js"></script>
-        <button type="button" class="giveUpButton" id="giveUpButton">Give Up</button>
-        <script type="module" src="/Public/Script/boardScript.js" ></script>
-        <script type="module" src="/Public/Script/inputLetters.js"></script>
     </body>
 
 </html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Guessle</title>
+
+        <link rel="stylesheet" type="text/css" href="/Public/css/style.css">
+    </head>
+    <body>
+        
+        <p id="numberOfPlayers" hidden><%= numberOfPlayers %></p>                   
+        <h1> Guessle Game </h1>
+
+        <!-- display board based on number of players -->
+        <% for (var i =1; i <= numberOfPlayers;   i++ ) { %>                            
+            <br/>
+            <%- include("../partials/board.ejs", {i: i}) %> 
+            <br/>
+            <% } %>
+    </body>
+
+</html>
