@@ -1,5 +1,5 @@
 'use strict'
-
+import {Player} from './boardScript.js'
 let turns = 0
 let winFlag = false
 let endFlag = false
@@ -58,9 +58,10 @@ function EndGameCheck(rightnessArray,answer,endGamePopUp,popUpText){
     }
 
     if(winFlag === true){
+        const Play = new Player()
+        Play.won();
         gameOverText = `You have won in ${turns} tries\n The correct word is \n ${answer.toUpperCase()}`
             //setTimeout(function(){alert(gameOverText))
-            
         endFlag = true
         //console.log("win",endFlag)
             }
@@ -68,7 +69,6 @@ function EndGameCheck(rightnessArray,answer,endGamePopUp,popUpText){
     if (turns === 6 && winFlag === false){
         gameOverText = `Game Over \n The correct word is \n ${answer.toUpperCase()}`
             //setTimeout(function(){alert(gameOverText))
-            
             endFlag = true
             console.log("gameover",endFlag)
         }

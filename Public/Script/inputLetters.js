@@ -8,10 +8,8 @@ import {UICorrectnessFeedback} from './Interfacescript.js'
 import{GetAnswer} from './Interfacescript.js'
 import{NewWord} from './Interfacescript.js'
 
-const func= require('./GuessWords.js')
-const IsWord=func.IsWord;
 
-//import{IsWord} from './GuessWords.js'
+import{IsWord} from './GuessWords.js'
 import{GiveUp, IncreaseTurnCounter} from './EndGameManager.js'
 import{EndGameCheck} from './EndGameManager.js'
 import{CloseForm} from './EndGameManager.js'

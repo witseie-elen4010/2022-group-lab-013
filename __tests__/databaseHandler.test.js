@@ -1,4 +1,6 @@
 /* eslint-env jest */
+/*
+
 'use strict'
 
 const func = require('../Private/Script/databaseHandler')
@@ -14,4 +16,4 @@ test('Check if user is in database', () => {
   });
 
 
-
+*/

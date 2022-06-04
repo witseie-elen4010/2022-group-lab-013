@@ -16,6 +16,9 @@ function GameBoardInitialization () {
     gameBoard.appendChild(wordContainer)  //Add wordContainer as a child element of the board
   }
   //console.log('Board Initialised')  //Log message used for testing
+
+  const Play = new Player()
+  Play.Play();
 }
 
 function ResetGameBoard(){
@@ -30,6 +33,8 @@ function ResetGameBoard(){
         ChangeLetterContainerColour('',i,j)
       }
   }
+  const Play = new Player()
+  Play.Play();
 }
 
 //Function to populate a given wordContainer with a given word
@@ -65,6 +70,59 @@ function ChangeLetterContainerColour (boxCorrectnessStatus, guessNo, letterNo) {
   }
 }
 
+//Game statistic modal code
+const openStatsButtons = document.querySelectorAll('[data-modal-target]')
+const closeStatsButtons = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+//document.getElementById("Output").innerHTML = "Bonjour";
+
+openStatsButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const stats = document.querySelector(button.dataset.modalTarget)
+    openStats(stats)
+
+  })
+})
+
+overlay.addEventListener('click', () => {
+  const modals = document.querySelectorAll('.stats.active')
+  modals.forEach(stat => {
+    closeStats(stat)
+  })
+})
+
+function closeStats(stats) {
+  if (stats == null) return
+  stats.classList.remove('active')
+  overlay.classList.remove('active')
+}
+
+closeStatsButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const stats = button.closest('.stats')
+    closeStats(stats)
+  })
+})
+
+function openStats(stats) {
+  if (stats == null) return
+  stats.classList.add('active')
+  overlay.classList.add('active')
+  const Play = new Player()
+  document.getElementById('Output').innerHTML="Games played: "+Play.getPlayed().toString()+" Games won: "+Play.getwonGames().toString()
+}
+
+
+class Player{
+ static gamesPlayed=0;
+ static gamesWon=0;
+ Play() { Player.gamesPlayed++;}
+ won(){ Player.gamesWon++;}
+ getPlayed(){return Player.gamesPlayed;}
+ getwonGames(){return Player.gamesWon;}
+}
+
+
 //Initialize the board
 GameBoardInitialization()
 //Export functions for use in other .js files
@@ -72,3 +130,4 @@ export {GameBoardInitialization as initBoard}
 export {UpdateWordContainer  as populateRow}
 export {ChangeLetterContainerColour as changeBoxColour}
 export {ResetGameBoard}
+export{Player}

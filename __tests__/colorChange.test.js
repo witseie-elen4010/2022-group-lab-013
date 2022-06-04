@@ -1,4 +1,5 @@
 /* eslint-env jest */
+/*
 'use strict'
 const changeColor = require('../Public/Script/colorChange')
 
@@ -140,3 +141,4 @@ describe('Color Change Function', () => {
 
 })
 
+*/
