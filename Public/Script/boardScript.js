@@ -1,25 +1,68 @@
 /* eslint-env jest */
 
 //Function to initializa game board
+
 function GameBoardInitialization (id) {
   let gameBoard = document.getElementById(`game-board${id}`) //gameBoard is of type HTMLElement
 
-  for (let i = 0; i < 6; i++) { //Create 6 word containers
-    let wordContainer = document.createElement('div') //wordContainer is of type HTMLElement
-    wordContainer.className = 'letter-row'
+  if(document.getElementById('single-game-board')){
+    gameBoard = document.getElementById('single-game-board')
 
-    for (let j = 0; j < 5; j++) { //Create 5 letter container for each wordContainer
-      let letterContainer = document.createElement('div') //letterContainer is of type HTMLElement
-      letterContainer.className = 'letter-box'
-      wordContainer.appendChild(letterContainer)  //Add letterContainer as a child element of the current wordContainer
+    for (let i = 0; i < 6; i++) { //Create 6 word containers
+      let wordContainer = document.createElement('div') //wordContainer is of type HTMLElement
+      wordContainer.className = 'letter-row'
+  
+      for (let j = 0; j < 5; j++) { //Create 5 letter container for each wordContainer
+        let letterContainer = document.createElement('div') //letterContainer is of type HTMLElement
+        letterContainer.className = 'letter-box'
+        wordContainer.appendChild(letterContainer)  //Add letterContainer as a child element of the current wordContainer
+      }
+      gameBoard.appendChild(wordContainer)  //Add wordContainer as a child element of the board
     }
-    gameBoard.appendChild(wordContainer)  //Add wordContainer as a child element of the board
+    
   }
+  const pNum = 3
+  if(document.getElementById('multi-game-board')){
+    gameBoard = document.getElementById('multi-game-board')
+
+    for(let i = 0;i <pNum;i++){
+      let playerBoard = document.createElement('ul')
+      playerBoard.className = 'game-board'
+      for (let i = 0; i < 6; i++) { //Create 6 word containers
+          let listEntry = document.createElement('li')
+          let wordContainer = document.createElement('div') //wordContainer is of type HTMLElement
+          wordContainer.className = 'letter-row'
+        
+          for (let j = 0; j < 5; j++) { //Create 5 letter container for each wordContainer
+            let letterContainer = document.createElement('div') //letterContainer is of type HTMLElement
+            letterContainer.className = 'letter-box'
+            wordContainer.appendChild(letterContainer)  //Add letterContainer as a child element of the current wordContainer
+          }
+          listEntry.appendChild(wordContainer)
+          playerBoard.appendChild(listEntry)  //Add wordContainer as a child element of the board
+        }
+        gameBoard.appendChild(playerBoard)
+        
+    }
+        
+  }
+
+  //let gameBoard = document.getElementById('game-board') //gameBoard is of type HTMLElement
+  
+  
   //console.log('Board Initialised')  //Log message used for testing
 }
 
 function ResetGameBoard(){
-  let gameBoard = document.getElementById('game-board')
+  let gameBoard
+
+  if(document.getElementById('single-game-board')){
+    gameBoard = document.getElementById('single-game-board')
+  }
+
+  if(document.getElementById('multi-game-board')){
+    gameBoard = document.getElementById('multi-game-board')
+  }
   let word = Array.from(gameBoard.children)
   //console.log(word)
   //console.log(word.length)

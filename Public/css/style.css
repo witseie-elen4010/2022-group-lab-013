@@ -2,10 +2,20 @@ h1 {
     text-align: center;
    }
 
+
    .game-board {
     display: flex;
     align-items: center;
     flex-direction: column;
+  }
+  #multi-game-board {
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 336px;
+    width: 56px;
   }
   
   .letter-box {
@@ -28,6 +38,9 @@ h1 {
   
   .letter-row {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: auto;
   }
 
   .popUp-container{
@@ -112,3 +125,10 @@ h1 {
     border-radius: 2px;
 
   }
+
+  #multi-game-board .game-board li{
+    list-style: none;
+    padding: 0;
+    display: inline;
+   
+}

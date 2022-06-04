@@ -1,11 +1,11 @@
 
 /* eslint-env jest */
-/*
-const varBoard = import('./boardScript.js')
+
+//const varBoard = import('./boardScript.js')
 
 const logSpy = jest.spyOn(console, 'log').mockImplementation()
 
-describe('Unit tests board initilization', () => {
+describe.skip('Unit tests board initilization', () => {
   beforeEach(() => {
     logSpy.mockClear()
   }
@@ -18,4 +18,3 @@ describe('Unit tests board initilization', () => {
   )
 }
 )
-*/
