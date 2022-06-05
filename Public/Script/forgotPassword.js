@@ -1,6 +1,8 @@
-const button = document.getElementById('submitButton')
+let button = document.getElementById("submitButton")
 
-button.addEventListener('click', function () {
-  const username = document.getElementById('playerUsername')
-  const password = document.getElementById('playerEmail')
+button.addEventListener('click', function(){
+  var username = document.getElementById("playerUsername")
+  var password = document.getElementById("playerEmail")
+
+
 })

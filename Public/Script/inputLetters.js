@@ -1,7 +1,14 @@
 'use strict'
 
-import { populateRow, changeBoxColour, ResetGameBoard } from './boardScript.js'
+import {populateRow} from './boardScript.js'
+import {changeBoxColour} from './boardScript.js'
+import {ResetGameBoard} from './boardScript.js'
+//import {UICorrectnessFeedback} from '../Interfacescript.js'
+import {UICorrectnessFeedback} from './Interfacescript.js'
+import{GetAnswer} from './Interfacescript.js'
+import{NewWord} from './Interfacescript.js'
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // import {UICorrectnessFeedback} from '../Interfacescript.js'
 import { UICorrectnessFeedback } from './Interfacescript.js'
@@ -15,116 +22,130 @@ const func= require('./GuessWords.js')
 const IsWord=func.IsWord;
 
 //import{IsWord} from './GuessWords.js'
+=======
+
+import{IsWord} from './GuessWords.js'
+>>>>>>> parent of c05a0f5 (added coding conventions and coding guide,applied standard to all file)
 import{GiveUp, IncreaseTurnCounter} from './EndGameManager.js'
 import{EndGameCheck} from './EndGameManager.js'
 import{CloseForm} from './EndGameManager.js'
 import{Restart} from './EndGameManager.js'
 
+<<<<<<< HEAD
 >>>>>>> parent of b7db574 (added game statistics for single player)
+=======
+>>>>>>> parent of c05a0f5 (added coding conventions and coding guide,applied standard to all file)
 
 let currentletterBlock = document.getElementById('currentBlock')
-const popUpText = document.getElementById('GameOver-Text')
-const endGamePopUp = document.getElementById('GameOver-Popup')
+let popUpText = document.getElementById('GameOver-Text')
+let endGamePopUp = document.getElementById('GameOver-Popup')
 const reButton = document.getElementById('restartButton')
 const closeButton = document.getElementById('closeButton')
 const giveUpButton = document.getElementById('giveUpButton')
 
 let answer = GetAnswer()
-document.addEventListener('keyup', inputLetter) // event:user releases key
+document.addEventListener('keyup', inputLetter);        //event:user releases key
 
-let guessesWord = [] // array with guessed letters
-let rowNo = 0
-let columnNo = 0
+let guessesWord=[]                                      //array with guessed letters
+let rowNo=0;
+let columnNo = 0;
 let currentTurn = 0
 let endFlag = false
-let keyboardLetter = ''
+let keyboardLetter = ""
 
-/// //////////////////////////////////////////////////////////////////////
-// KeyBoard//
+/////////////////////////////////////////////////////////////////////////
+//KeyBoard//
 
-const Keyboard = window.SimpleKeyboard.default
+let Keyboard = window.SimpleKeyboard.default;
 let keeptrack = 0
 
-const guessleKeyboard = new Keyboard({
+let guessleKeyboard = new Keyboard({
   onChange: function (data) {
     keyboardLetter = data.toUpperCase()
-
-    if (data.length > keeptrack) { letterInput(keyboardLetter[keyboardLetter.length - 1]) } // function call: letterInput stores user input
+    
+    if(data.length > keeptrack)
+    letterInput(keyboardLetter[keyboardLetter.length-1])            //function call: letterInput stores user input
 
     keeptrack = data.length
-    populateRow(guessesWord, rowNo)
+     populateRow (guessesWord, rowNo)
   },
 
-  onKeyPress: function (key) {
-    if (key == '{enter}') letterInput('ENTER')
-    if (key == '{bksp}') letterInput('BACKSPACE')
+  onKeyPress: function(key){
+    if(key == '{enter}') letterInput("ENTER")
+    if(key == '{bksp}') letterInput("BACKSPACE")
   }
-})
-/// //////////////////////////////////////////////////////////////////////////
+});
+/////////////////////////////////////////////////////////////////////////////
 
-function letterInput (value) {
-  if ((value >= 'A' && value <= 'Z' && value.length == 1) && columnNo < 5 && currentTurn < 6 && endFlag === false) {
-    columnNo++
-    currentletterBlock = value.toUpperCase()
-    guessesWord.push(value) // user letter intput is added to array
-    populateRow(guessesWord, rowNo)
-  }
-  if (value === 'BACKSPACE' && columnNo > 0) {
-    guessesWord.pop()
-    columnNo -= 1 // decrement the column by 1 when user deleted letter
-    populateRow(guessesWord, rowNo)
-  }
 
-  if (columnNo === 5 && value === 'ENTER') {
-    for (let a = 0; a < 5; a++) {
-      guessesWord[a] = guessesWord[a].toLowerCase()
-    }
+function letterInput(value){
+   if((value >= "A" && value<= "Z" && value.length == 1) && columnNo<5 && currentTurn <6 && endFlag === false){
+     columnNo++
+     currentletterBlock=value.toUpperCase()
+     guessesWord.push(value)                                    //user letter intput is added to array                      
+     populateRow (guessesWord, rowNo)
+   }
+   if(value === "BACKSPACE" && columnNo>0){
+       guessesWord.pop()
+       columnNo-=1                                             //decrement the column by 1 when user deleted letter
+       populateRow (guessesWord, rowNo)
+   }
+ 
+   if(columnNo === 5 && value === "ENTER"){
+ 
+     for(let a=0;a<5;a++){
+         guessesWord[a]= guessesWord[a].toLowerCase();
+     }
+ 
+     let boxCoulourCorrectnessArray = UICorrectnessFeedback(guessesWord);
+     if(IsWord(guessesWord)){
+         for (let j = 0; j < 5; j++) {
+             changeBoxColour(boxCoulourCorrectnessArray[j],rowNo,j)
+         }
+         guessesWord=[]                                              //empty guessed word array after the end of a guess
+         columnNo=0                                                  //set column number back to 0 for next guess
+         rowNo++
+         populateRow (guessesWord, rowNo)
+         currentTurn  = IncreaseTurnCounter()
+         endFlag = EndGameCheck(boxCoulourCorrectnessArray,answer,endGamePopUp,popUpText)
+     }
+     else{
+         setTimeout(function(){alert('Not a valid Guessle word, please try again')})
+         guessesWord=[]                                              
+         columnNo=0                                                  
+         populateRow (guessesWord, rowNo)
+     }            
+   }
+ }
+ 
 
-    const boxCoulourCorrectnessArray = UICorrectnessFeedback(guessesWord)
-    if (IsWord(guessesWord)) {
-      for (let j = 0; j < 5; j++) {
-        changeBoxColour(boxCoulourCorrectnessArray[j], rowNo, j)
-      }
-      guessesWord = [] // empty guessed word array after the end of a guess
-      columnNo = 0 // set column number back to 0 for next guess
-      rowNo++
-      populateRow(guessesWord, rowNo)
-      currentTurn = IncreaseTurnCounter()
-      endFlag = EndGameCheck(boxCoulourCorrectnessArray, answer, endGamePopUp, popUpText)
-    } else {
-      setTimeout(function () { alert('Not a valid Guessle word, please try again') })
-      guessesWord = []
-      columnNo = 0
-      populateRow(guessesWord, rowNo)
-    }
-  }
-}
-
-function inputLetter (event) {
-  const keyValue = event.key
-  const keyCodeValue = event.code
-  const keyValueUpper = keyValue.toUpperCase()
+ function inputLetter(event){
+  var keyValue = event.key
+  var keyCodeValue = event.code
+  var keyValueUpper = keyValue.toUpperCase()
 
   letterInput(keyValueUpper)
 }
 
-closeButton.addEventListener('click', function () {
+closeButton.addEventListener('click',function(){
   CloseForm(endGamePopUp)
 })
 
-reButton.addEventListener('click', function () {
-  guessesWord = []
-  rowNo = 0
-  columnNo = 0
+reButton.addEventListener('click',function(){
+  guessesWord=[]  
+  rowNo=0;
+  columnNo = 0;
   currentTurn = 0
   endFlag = false
   NewWord()
   answer = GetAnswer()
-
+  
   ResetGameBoard()
   Restart(endGamePopUp)
+  
 })
 
-giveUpButton.addEventListener('click', function () {
-  endFlag = GiveUp(answer, endGamePopUp, popUpText)
+giveUpButton.addEventListener('click',function(){
+
+endFlag = GiveUp(answer,endGamePopUp,popUpText) 
 })
