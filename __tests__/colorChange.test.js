@@ -1,9 +1,10 @@
 /* eslint-env jest */
+/*
 'use strict'
-//const changeColor = require('../Public/Script/colorChange')
+const changeColor = require('../Public/Script/colorChange')
 
 //jest.spyon(document, 'getElementById')
-describe.skip('Color Change Function', () => {
+describe('Color Change Function', () => {
 
   test('Color Changes Green for matched letter', () => {
   let testWord = document.createElement('div') 
@@ -140,6 +141,11 @@ describe.skip('Color Change Function', () => {
 
 })
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> parent of b7db574 (added game statistics for single player)
+=======
+
+*/
+>>>>>>> parent of 1f1120f (added changes)
