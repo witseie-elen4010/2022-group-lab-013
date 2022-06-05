@@ -1,18 +1,36 @@
 const loginButton = document.getElementById('LoginSubmit')
 
-loginButton.addEventListener('click', async function(){
+loginButton.addEventListener('click', function(){
     //let userName = "Guest";
-      fetch('/Login/login', {
+    let userName = document.getElementById('playerUsername').value
+    let userPass = document.getElementById('playerPassword').value
+
+      fetch('/Login', {
         method: 'post',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          userName: 'Sprint3',
-          userPassword: '4'
+          userName: userName,
+          userPassword: userPass
         })
-      }).then(data => {
-        window.location.replace(data.url);
+      })
+      .then(data => {
+        console.log('data.json')
+        return data.json();
+      })
+      .then(data => {
+        console.log('in loginsetup')
+        if(data.includes('/Home'))
+        {
+          window.location.replace(data);
+        }
+        else if (!data.includes('/Home')){
+          window.alert('login failed, check credentials');
+        }
     })
-});
+    .catch(err =>{
+      console.error(err);
+    })
+})

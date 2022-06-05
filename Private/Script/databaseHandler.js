@@ -9,7 +9,9 @@ let db;
 const PlayerSheet = require('./PlayerSheet.js');
 const express = require('express');
 const mongoose = require('mongoose');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+
+ConnectToDatabase();
 
 async function AddnewPlayer(username, password) {
     const newPlayersheet = new PlayerSheet({
@@ -42,18 +44,18 @@ async function UserExits(name) {
 }
 
 async function ValidLogin(name, password) {
-    await ConnectToDatabase();
+    
     const newPlayersheet = await PlayerSheet.where('Username').equals(name).where('Password').equals(password);
         console.log('Player result from database');
    if (newPlayersheet.length == 0) {
         console.log('Wrong password');
-        DisconnectFromDatabase();
+        //DisconnectFromDatabase();
         return false
     }
 
     else{
         console.log('Right password');
-        DisconnectFromDatabase();
+        //DisconnectFromDatabase();
         return true
     }
 }
