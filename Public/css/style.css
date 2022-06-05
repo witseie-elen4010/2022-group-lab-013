@@ -111,6 +111,7 @@ h1 {
     right:3rem;
     border-radius: 2px;
 
+<<<<<<< HEAD
   }
 
   .stats {
@@ -179,4 +180,6 @@ h1 {
     pointer-events: all;
     opacity: 1;
     
+=======
+>>>>>>> parent of b7db574 (added game statistics for single player)
   }

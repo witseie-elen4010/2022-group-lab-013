@@ -1,5 +1,9 @@
 'use strict'
+<<<<<<< HEAD
 import { Player } from './boardScript.js'
+=======
+
+>>>>>>> parent of b7db574 (added game statistics for single player)
 let turns = 0
 let winFlag = false
 let endFlag = false
@@ -78,4 +82,48 @@ function EndGameCheck (rightnessArray, answer, endGamePopUp, popUpText) {
   return endFlag
 }
 
+<<<<<<< HEAD
 export { EndGameCheck, IncreaseTurnCounter, CloseForm, Restart, GiveUp }
+=======
+function EndGameCheck(rightnessArray,answer,endGamePopUp,popUpText){
+    if(!endFlag){
+        for(let i = 0;i<rightnessArray.length;i++){
+        if(rightnessArray[i]!='correct'){
+            winFlag = false
+            break}
+
+        else if(rightnessArray[i]=='correct'){
+            winFlag = true
+        }
+    }
+
+    if(winFlag === true){
+        gameOverText = `You have won in ${turns} tries\n The correct word is \n ${answer.toUpperCase()}`
+            //setTimeout(function(){alert(gameOverText))
+            
+        endFlag = true
+        //console.log("win",endFlag)
+            }
+        
+    if (turns === 6 && winFlag === false){
+        gameOverText = `Game Over \n The correct word is \n ${answer.toUpperCase()}`
+            //setTimeout(function(){alert(gameOverText))
+            
+            endFlag = true
+            console.log("gameover",endFlag)
+        }
+    
+    }
+
+    if(endFlag === true){
+        popUpText.textContent = gameOverText
+        OpenForm(endGamePopUp)
+        //gameOverText = `You have given up in ${turns} tries \n The correct word is \n ${answer.toUpperCase()}`
+    }
+    
+    return endFlag
+}
+
+export {EndGameCheck,IncreaseTurnCounter,CloseForm,Restart,GiveUp}
+
+>>>>>>> parent of b7db574 (added game statistics for single player)

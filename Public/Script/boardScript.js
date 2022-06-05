@@ -15,10 +15,14 @@ function GameBoardInitialization () {
     }
     gameBoard.appendChild(wordContainer) // Add wordContainer as a child element of the board
   }
+<<<<<<< HEAD
   // console.log('Board Initialised')  //Log message used for testing
 
   const Play = new Player()
   Play.Play()
+=======
+  //console.log('Board Initialised')  //Log message used for testing
+>>>>>>> parent of b7db574 (added game statistics for single player)
 }
 
 function ResetGameBoard () {
@@ -33,8 +37,11 @@ function ResetGameBoard () {
       ChangeLetterContainerColour('', i, j)
     }
   }
+<<<<<<< HEAD
   const Play = new Player()
   Play.Play()
+=======
+>>>>>>> parent of b7db574 (added game statistics for single player)
 }
 
 // Function to populate a given wordContainer with a given word
@@ -68,6 +75,7 @@ function ChangeLetterContainerColour (boxCorrectnessStatus, guessNo, letterNo) {
   }
 }
 
+<<<<<<< HEAD
 // Game statistic modal code
 const openStatsButtons = document.querySelectorAll('[data-modal-target]')
 const closeStatsButtons = document.querySelectorAll('[data-close-button]')
@@ -126,3 +134,12 @@ export { UpdateWordContainer as populateRow }
 export { ChangeLetterContainerColour as changeBoxColour }
 export { ResetGameBoard }
 export { Player }
+=======
+//Initialize the board
+GameBoardInitialization()
+//Export functions for use in other .js files
+export {GameBoardInitialization as initBoard}
+export {UpdateWordContainer  as populateRow}
+export {ChangeLetterContainerColour as changeBoxColour}
+export {ResetGameBoard}
+>>>>>>> parent of b7db574 (added game statistics for single player)

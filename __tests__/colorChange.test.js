@@ -133,3 +133,7 @@ describe.skip('Color Change Function', () => {
     expect(letters[4].style.backgroundColor).toEqual('Green')
   })
 })
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of b7db574 (added game statistics for single player)

@@ -25,5 +25,11 @@ function IsWord (inputWordArr) {
   return false
 }
 
+<<<<<<< HEAD
 export { Guessword, IsWord }
 // module.exports={Guessword,IsWord}
+=======
+//cexport { Guessword,IsWord };
+module.exports={Guessword,IsWord}
+
+>>>>>>> parent of b7db574 (added game statistics for single player)

@@ -2,6 +2,7 @@
 
 import { populateRow, changeBoxColour, ResetGameBoard } from './boardScript.js'
 
+<<<<<<< HEAD
 // import {UICorrectnessFeedback} from '../Interfacescript.js'
 import { UICorrectnessFeedback } from './Interfacescript.js'
 import { GetAnswer } from './Interfacescript.js'
@@ -9,6 +10,17 @@ import { NewWord } from './Interfacescript.js'
 
 import { IsWord } from './GuessWords.js'
 import { GiveUp, IncreaseTurnCounter, EndGameCheck, CloseForm, Restart } from './EndGameManager.js'
+=======
+const func= require('./GuessWords.js')
+const IsWord=func.IsWord;
+
+//import{IsWord} from './GuessWords.js'
+import{GiveUp, IncreaseTurnCounter} from './EndGameManager.js'
+import{EndGameCheck} from './EndGameManager.js'
+import{CloseForm} from './EndGameManager.js'
+import{Restart} from './EndGameManager.js'
+
+>>>>>>> parent of b7db574 (added game statistics for single player)
 
 let currentletterBlock = document.getElementById('currentBlock')
 const popUpText = document.getElementById('GameOver-Text')
