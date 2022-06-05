@@ -115,19 +115,17 @@ h1 {
   }
 
   .stats {
-    transform: translate(-50%, -50%) scale(0);
-    transition: 200ms ease-in-out;
-    border: 1px solid black;
     position: fixed;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
     z-index: 10;
     background-color: white;
     width: 500px;
     max-width: 80%;
- 
-    border-radius: 10px;
-  
   }
   
   .stats.active {
@@ -137,10 +135,9 @@ h1 {
   .stats-header {
     padding: 10px 15px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid black;
-    justify-content: space-between;
- 
   }
   
   .stats-header .title {
@@ -151,11 +148,10 @@ h1 {
   .stats-header .close-button {
     cursor: pointer;
     border: none;
-    font-size: 1.25rem;
-    font-weight: bold;
     outline: none;
     background: none;
-  
+    font-size: 1.25rem;
+    font-weight: bold;
   }
   
   .stats-body {
@@ -166,20 +162,22 @@ h1 {
   #overlay {
     position: fixed;
     opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, .5);
     pointer-events: none;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-  
   }
   
   #overlay.active {
-    pointer-events: all;
     opacity: 1;
+<<<<<<< HEAD
     
 =======
 >>>>>>> parent of b7db574 (added game statistics for single player)
+=======
+    pointer-events: all;
+>>>>>>> parent of 95e1606 (added game statistics for single player)
   }
