@@ -7,6 +7,10 @@ import {ResetGameBoard} from './boardScript.js'
 import {UICorrectnessFeedback} from './Interfacescript.js'
 import{GetAnswer} from './Interfacescript.js'
 import{NewWord} from './Interfacescript.js'
+
+//const func= require('./GuessWords.js')
+//const IsWord=func.IsWord;
+
 import{IsWord} from './GuessWords.js'
 import{GiveUp, IncreaseTurnCounter} from './EndGameManager.js'
 import{EndGameCheck} from './EndGameManager.js'
@@ -29,7 +33,6 @@ let rowNo=0;
 let columnNo = 0;
 let currentTurn = 0
 let endFlag = false
-
 let keyboardLetter = ""
 
 /////////////////////////////////////////////////////////////////////////
@@ -41,7 +44,7 @@ let keeptrack = 0
 let guessleKeyboard = new Keyboard({
   onChange: function (data) {
     keyboardLetter = data.toUpperCase()
-
+    
     if(data.length > keeptrack)
     letterInput(keyboardLetter[keyboardLetter.length-1])            //function call: letterInput stores user input
 
@@ -69,13 +72,13 @@ function letterInput(value){
        columnNo-=1                                             //decrement the column by 1 when user deleted letter
        populateRow (guessesWord, rowNo)
    }
-
+ 
    if(columnNo === 5 && value === "ENTER"){
-
+ 
      for(let a=0;a<5;a++){
          guessesWord[a]= guessesWord[a].toLowerCase();
      }
-
+ 
      let boxCoulourCorrectnessArray = UICorrectnessFeedback(guessesWord);
      if(IsWord(guessesWord)){
          for (let j = 0; j < 5; j++) {
@@ -96,7 +99,6 @@ function letterInput(value){
      }            
    }
  }
-
 
  function inputLetter(event){
   var keyValue = event.key
@@ -128,3 +130,4 @@ closeButton.addEventListener('click',function(){
   
   endFlag = GiveUp(answer,endGamePopUp,popUpText) 
   })
+
