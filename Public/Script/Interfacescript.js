@@ -1,6 +1,4 @@
-//import { Guessword } from './GuessWords.js'
-const func= require('./GuessWords.js')
-const Guessword=func.IsWord;
+import { Guessword } from './GuessWords.js'
 import {CheckLetterInWord} from './CheckLetterInWord.js';
 let word = Guessword();
 
