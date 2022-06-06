@@ -16,11 +16,8 @@ loginButton.addEventListener('click', function(){
           userPassword: userPass
         })
       })
-      .then(data => {
-        console.log('data.json')
-        return data.json();
-      })
-      .then(data => {
+      .then(data =>data.json())
+      .then(data =>{
         console.log('in loginsetup')
         if(data.includes('/Home'))
         {
@@ -28,6 +25,7 @@ loginButton.addEventListener('click', function(){
         }
         else if (!data.includes('/Home')){
           window.alert('login failed, check credentials');
+          window.location.replace(data);
         }
     })
     .catch(err =>{
