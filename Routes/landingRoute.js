@@ -26,4 +26,20 @@ router.post('/Login',async function (req, res) {
     })
 })
  
+router.get('/SinglePlayer',async function (req, res) {
+    res.render('users/SinglePlayer');
+})
+
+router.get('/multiPlayerModes',async function (req, res) {
+    res.render('users/multiplayerModes');
+})
+
+router.get('/signupPage',async function (req, res) {
+    res.render('users/signupPage');
+})
+
+router.get('/multiPlayerModes',async function (req, res) {
+    res.render('users/SinglePlayer');
+})
+
 module.exports = router;
