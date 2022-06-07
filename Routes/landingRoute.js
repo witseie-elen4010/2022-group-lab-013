@@ -9,8 +9,8 @@ router.get('/',(req,res) =>{
  
 router.post('/Login',async function (req, res) {
  
-    let userId = req.body.userName;
-    let userPassword = req.body.userPassword;
+    let userId = await req.body.userName;
+    let userPassword = await req.body.userPassword;
     
     dbFunctions.ValidLogin(userId, userPassword)
     .then((loginResult) => {

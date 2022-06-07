@@ -5,7 +5,6 @@ function ToViewLogs(){
   document.getElementById("log").action = "GameLog"          //navigate to multiplayerSingleWord when button is clicked
   document.getElementById("log").submit();
 }
-loginButton.addEventListener('click', function(){
 
 function ToSignUp(){
   document.getElementById("sign").action = "SignUpPage"          //navigate to multiplayerSingleWord when button is clicked
