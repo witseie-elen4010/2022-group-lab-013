@@ -34,10 +34,29 @@ router.get('/multiPlayerModes',async function (req, res) {
     res.render('users/multiplayerModes');
 })
 
-router.get('/signupPage',async function (req, res) {
+router.get('/SignUpPage',async function (req, res) {
     res.render('users/signupPage');
 })
 
+router.post('/SignUp',async function(req,res){
+    let desiredUsername = req.body.userName;
+    let desiredPassword = req.body.userPassword;
+    let desiredPasswordCheck = req.body.userPasswordCheck;
+    //Checks for the username
+    dbFunctions.UserExits(desiredUsername)
+    .then((exists) => {
+        if(exists){
+            res.json('exists')
+        }
+        else if (desiredPassword != desiredPasswordCheck){
+            res.json('passNo')
+        }
+        else{
+            dbFunctions.AddnewPlayer(desiredUsername,desiredPassword)
+            res.json('Home')
+        }
+    })
+})
 router.get('/multiplayerChooseAWord',async function (req, res) {
     res.render('users/multiplayerChooseAWord',  {numberOfPlayers: 3});
 })
