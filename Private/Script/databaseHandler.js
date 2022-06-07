@@ -442,6 +442,7 @@ async function main(){
 
 main();
 */
+ConnectToDatabase();
 
 module.exports={AddnewPlayer,UpdatePassword,UserExits,ValidLogin,
     UpdateSingleplayerGames,UpdateSingleplayerWins,UpdateMultiplayerGames,UpdateMultiplayerWins,
