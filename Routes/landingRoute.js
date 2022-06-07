@@ -41,7 +41,7 @@ router.get('/signupPage',async function (req, res) {
 router.get('/multiplayerChooseAWord',async function (req, res) {
     let gameID = req.body.gameID;
     console.log('Recieved gameID')
-    res.render('users/multiplayerChooseAWord',  {numberOfPlayers: 3});
+    res.render('users/multiplayerChooseAWord',  {numberOfPlayers: 3}, gameID);
 })
 
 router.post('/multiplayerSetUpGame',async function (req, res) {
