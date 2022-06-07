@@ -27,10 +27,10 @@ async function AddnewPlayer(username, password) {
         SingleplayerGames: 0,
     })
     await newPlayersheet.save()
-        .then(res => {
-             console.log(res);
+        //.then(res => {
+             //console.log(res);
             //res.send(result);
-        })
+        //})
         .catch(err => {
             console.log(err);
         });
