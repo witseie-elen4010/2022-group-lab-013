@@ -40,10 +40,11 @@ function ResetGameBoard(){
 }
 
 //Function to populate a given wordContainer with a given word
-function UpdateWordContainer (guessesWord, guessNo) {
+async function UpdateWordContainer (guessesWord, guessNo) {
+  
   let wordContainer  = document.getElementsByClassName('letter-row')[guessNo]  //wordContainer is specified by guessNo
-
   if(wordContainer){
+    //await UpdateDatabase(guessesWord);
     for (let i = 0; i < 5; i++) { //Insert each letter of the given word (guessesWord) into letterContainers of wordContainer
     let letterContainer = wordContainer.children[i]
     letterContainer.textContent = guessesWord[i]
