@@ -7,6 +7,10 @@
         <title>Guessle</title>
 
         <link rel="stylesheet" type="text/css" href="/Public/css/style.css">
+        <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css"
+      />
     </head>
     <body>
         
@@ -16,7 +20,7 @@
         <!-- display board based on number of players -->
         <% for (var i =1; i <= numberOfPlayers;   i++ ) { %>                            
             <br/>
-            <%- include("../partials/board.ejs", {i: i}) %> 
+            <%- include("../../Public/partials/board.ejs", {i: i}) %> 
             <br/>
             <% } %>
     </body>

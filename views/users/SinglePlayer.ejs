@@ -7,12 +7,18 @@
         <title>Guessle</title>
 
         <link rel="stylesheet" type="text/css" href="/Public/css/style.css">
+
+        <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css"
+      />
     </head>
     <body>
 
         <p id="numberOfPlayers" hidden>1</p>
         <h1> Guessle Game </h1>
-        <%- include("../partials/board.ejs", {i: ""}) %> 
+        <%- include("../../Public/partials/board.ejs", {i: ""}) %> 
+        
         
     </body>
 
