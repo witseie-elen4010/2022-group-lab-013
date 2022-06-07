@@ -19,6 +19,18 @@
         <h1> Guessle Game </h1>
         <%- include("../../Public/partials/board.ejs", {i: ""}) %> 
         
+        <button data-modal-target="#stats">Game statistics</button>
+        <div class="stats" id="stats">
+          <div class="stats-header">
+            <div class="title">Game statistics</div>
+          <button data-close-button class="close-button">&times;</button>
+          </div>
+          <div class="stats-body">
+          </div>
+          <p id ="Output"></p>
+        </div>
+        <div id="overlay"></div>
+        
         
     </body>
 

@@ -12,16 +12,15 @@
     <body>
         <div class="heading">Guessle Game</div>
         <br>
-        <form class = "detail-box" id = "signupFormId">
+        <form class = "detail-box" action = "/Log">
+            <br>
             <h3>
-                Please enter your desired Username and password
+                View game log
             </h3>
 
-            <input type = "text" name="" placeholder="Enter Username" id = "playerUsername">
-            <input type = "password" name="" placeholder="Enter Password" id = "playerPassword">
-            <input type = "password" name="" placeholder="Verify Password" id = "playerPasswordCheck">
-            <input type="button" class="Submit" value ="Submit" id="submitButton" method="POST"  action="/SignUp">
+            <input type = "text" name="" placeholder="Enter Game ID" id = "gameID">
+            <input type="button" class="Submit" value ="Submit" id="logSubmit" method="POST"  action="/Log">
         </form>
-        <script defer type="module" src="/Public/Script/signup.js"></script>
+        <script defer type="module" src="/Public/Script/gameLog.js"></script>
     </body>
 </html>

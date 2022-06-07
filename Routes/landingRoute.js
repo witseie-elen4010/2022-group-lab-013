@@ -14,10 +14,10 @@ router.get('/',(req,res) =>{
  
 router.post('/Login',async function (req, res) {
  
-    let userId = req.body.userName;
-    let userPassword = req.body.userPassword;
+    let userId = await req.body.userName;
+    let userPassword = await req.body.userPassword;
     USERID = userId
-    
+
     await dbFunctions.ValidLogin(userId, userPassword)
     .then((loginResult) => {
         console.log('in here',loginResult)
@@ -40,10 +40,29 @@ router.get('/multiPlayerModes',async function (req, res) {
     res.render('users/multiplayerModes');
 })
 
-router.get('/signupPage',async function (req, res) {
+router.get('/SignUpPage',async function (req, res) {
     res.render('users/signupPage');
 })
 
+router.post('/SignUp',async function(req,res){
+    let desiredUsername = req.body.userName;
+    let desiredPassword = req.body.userPassword;
+    let desiredPasswordCheck = req.body.userPasswordCheck;
+    //Checks for the username
+    dbFunctions.UserExits(desiredUsername)
+    .then((exists) => {
+        if(exists){
+            res.json('exists')
+        }
+        else if (desiredPassword != desiredPasswordCheck){
+            res.json('passNo')
+        }
+        else{
+            dbFunctions.AddnewPlayer(desiredUsername,desiredPassword)
+            res.json('Home')
+        }
+    })
+})
 router.get('/multiplayerChooseAWord',async function (req, res) {
     res.render('users/multiplayerChooseAWord',  {gameID: GAMEID, numberOfPlayers: 3});
 })
@@ -120,6 +139,19 @@ router.post('/multiplayerGuessedWordUpdate',async function (req, res) {
 
 router.get('/multiplayerSingleWord',async function (req, res) {
     res.render('users/multiplayerSingleWord',  {numberOfPlayers: 3});
+})
+
+router.get('/GameLog', async function(req,res){
+    res.render('users/gameLog')
+})
+
+router.post('/Log', async function(req,res) {
+    let GID = req.body.gameId;
+
+    //dbFunctions.GetGuessWords(GID)
+    //.then(game =>{
+        res.json('no log available')
+   // })
 })
 
 module.exports = router;
