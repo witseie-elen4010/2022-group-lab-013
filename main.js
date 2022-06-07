@@ -33,6 +33,12 @@ gameRouter.get('/homePage', function (req, res) {
 })
 
 ////////////////////////////////////////
+gameRouter.get('/multiplayerSingleWord', function (req, res) {
+    res.render(path.join(__dirname, 'Public', 'View', 'multiplayerSingleWord.ejs'), {numberOfPlayers: 3})
+})
+gameRouter.get('/multiplayerGame', function (req, res) {
+    res.render(path.join(__dirname, 'Public', 'View', 'multiplayerGame.ejs'), {numberOfPlayers: 3})
+})
 gameRouter.get('/multiPlayerModes', function (req, res) {
     res.render(path.join(__dirname, 'Public', 'View', 'multiplayerModes.ejs'))
 })
