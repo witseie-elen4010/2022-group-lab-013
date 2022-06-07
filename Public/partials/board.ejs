@@ -2,7 +2,9 @@
 
 <!-- game board id -->
 <div id=<%=`game-board${i}`%> class = "game-board"></div>
-
+<div class="container grid-lg mt-2 mb-2">
+    <div class="simple-keyboard"></div>
+  </div>
 <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -16,6 +18,7 @@
     <button type="button" class="restartButton" id="restartButton">Try Again</button>
     <button type="button" class="closeButton" id="closeButton">Close</button>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/simple-keyboard@3.4.102/build/index.min.js"></script>
 <button type="button" class="giveUpButton" id="giveUpButton">Give Up</button>
 <script type="module" src="/Public/Script/boardScript.js" ></script>
 <script type="module" src="/Public/Script/inputLetters.js"></script>

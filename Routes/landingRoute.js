@@ -38,8 +38,19 @@ router.get('/signupPage',async function (req, res) {
     res.render('users/signupPage');
 })
 
-router.get('/multiPlayerModes',async function (req, res) {
-    res.render('users/SinglePlayer');
+router.get('/multiplayerChooseAWord',async function (req, res) {
+    res.render('users/multiplayerChooseAWord',  {numberOfPlayers: 3});
+})
+
+router.get('/multiplayerSingleWord',async function (req, res) {
+    res.render('users/multiplayerSingleWord',  {numberOfPlayers: 3});
 })
 
 module.exports = router;
+
+// gameRouter.get('/multiplayerSingleWord', function (req, res) {
+//     res.render(path.join(__dirname, 'Public', 'View', 'multiplayerSingleWord.ejs'), {numberOfPlayers: 3})
+// })
+// gameRouter.get('/multiplayerGame', function (req, res) {
+//     res.render(path.join(__dirname, 'Public', 'View', 'multiplayerGame.ejs'), {numberOfPlayers: 3})
+// })
