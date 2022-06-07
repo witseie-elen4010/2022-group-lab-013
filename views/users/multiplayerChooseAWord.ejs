@@ -16,13 +16,15 @@
         
         <p id="numberOfPlayers" hidden><%= numberOfPlayers %></p>                   
         <h1> Guessle Game </h1>
-
+        <form class = "detail-box" id = "form_multipayer_boards">
         <!-- display board based on number of players -->
         <% for (var i =1; i <= numberOfPlayers;   i++ ) { %>                            
             <br/>
             <%- include("../../Public/partials/board.ejs", {i: i}) %> 
             <br/>
             <% } %>
-    </body>
+        </form>
 
+    </body>
+    <!--<script src = '/Public/Script/multiplayerCooseWordSetup.js'></script> -->
 </html>
