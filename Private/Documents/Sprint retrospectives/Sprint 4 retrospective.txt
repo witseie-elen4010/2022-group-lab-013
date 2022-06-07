@@ -1,0 +1,75 @@
+#### Preparation:
+- Date:2022/06/07
+- Participants:FalseCrystal,HyChriFo,Cynthiack,Keowa-1877616,TTRasemana
+- Product owner:  @stephenlevitt
+- Team members: @FalseCrystal,@HyChriFo,@Cynthiack,@Keowa-1877616,@TTRasemana
+
+#### 2022-group-lab-013
+#### Scrum master: @HyChriFo
+
+
+#### Project Goal
+Develop a multiplayer word-guessing game based on Wordle, using NOde.js and hosted on Azure.
+
+#### Sprint 4 goal
+
+~Capture the use game logs 
+~Log page can be reached when website is running 
+~Users can create account 
+~At the end of a multiplayer game, opponents' boards with letters are shown 
+~User is given a 5-letter word to guess, displayed as empty blocks user-story
+~Multiplayer games are stored on the database developer-sized-story
+~Added database sheets and functions for multiplayer developer-sized-story
+~Fix request/response routing error 
+~In multiplayer, users can see opponents' boards 
+~Users can play same word multiplayer
+~User can login as guest Capabilities
+~Users can play multiplayer version 
+~In multiplayer users can input word for an opponent to guess
+~Players can see their game statistics
+~Users can retrieve password if forgotten
+~Users can register for an account on the website 
+
+The achieved website is: https://guessle.azurewebsites.net/
+
+#### Duration of Sprint: 5 days
+
+#### Moderation
+
+#Issues: 35 not done due to time constraints
+#Issue: 29 The multiplayer implenetaion was incomplete, due to a problem with sending and receiveing data from the database
+#Issue: 32,41 was done but not fully implemented as the multiplayer functionality was not completely implemeted
+#Issue: 42 Implented as the but the data is only stored on the database
+
+
+#### Successes
+~ Team integration is steady
+~ Team is reviewing with meaningful comments and code changes, using a review guide
+~ Improved planning and utilisation of the scrum board
+~ Sprint goals were identified in their entirety
+~Improved coordination with the soloution of problems
+
+#### Failures
+~Unable to complete the goals of the Sprint
+~Unable to to complete the funtionality of the game/webstie
+~Unable to solve key issues in architecture, that hindered production and deployment of features
+
+#### Improvements
+~ The quality of the architecture of the code needs to be improved. To avoid issues with require and html navigation, .jes files should be used
+~ Improvements in web architecture required to improved integration with the database 
+
+#### Velocity for sprint
+
+- Possible points for 15 user stories: 63
+
+		#### Achieved Velocity for Sprint 4: 43
+
+#### Velocity for project
+
+- Possible points for 51 user stories:171
+
+#### Achieved Velocity for the project: 104
+
+
+
+                
