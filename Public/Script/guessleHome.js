@@ -11,7 +11,7 @@ function instructions() {
 }
 
 function ToSinglePlayerPage() {
-  document.getElementById("single_id").action = "SinglePlayer"
+  document.getElementById("single_id").action = "SinglePlayer"  
   document.getElementById("single_id").submit();
 }
 

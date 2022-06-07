@@ -8,10 +8,10 @@ import {UICorrectnessFeedback} from './Interfacescript.js'
 import{GetAnswer} from './Interfacescript.js'
 import{NewWord} from './Interfacescript.js'
 
-const func= require('./GuessWords.js')
-const IsWord=func.IsWord;
+//const func= require('./GuessWords.js')
+//const IsWord=func.IsWord;
 
-//import{IsWord} from './GuessWords.js'
+import{IsWord} from './GuessWords.js'
 import{GiveUp, IncreaseTurnCounter} from './EndGameManager.js'
 import{EndGameCheck} from './EndGameManager.js'
 import{CloseForm} from './EndGameManager.js'
@@ -99,7 +99,6 @@ function letterInput(value){
      }            
    }
  }
- 
 
  function inputLetter(event){
   var keyValue = event.key
@@ -110,24 +109,25 @@ function letterInput(value){
 }
 
 closeButton.addEventListener('click',function(){
-  CloseForm(endGamePopUp)
-})
-
-reButton.addEventListener('click',function(){
-  guessesWord=[]  
-  rowNo=0;
-  columnNo = 0;
-  currentTurn = 0
-  endFlag = false
-  NewWord()
-  answer = GetAnswer()
+    CloseForm(endGamePopUp)
+  })
   
-  ResetGameBoard()
-  Restart(endGamePopUp)
+  reButton.addEventListener('click',function(){
+    guessesWord=[]  
+    rowNo=0;
+    columnNo = 0;
+    currentTurn = 0
+    endFlag = false
+    NewWord()
+    answer = GetAnswer()
   
-})
+    ResetGameBoard()
+    Restart(endGamePopUp)
+  
+  })
+  
+  giveUpButton.addEventListener('click',function(){
+  
+  endFlag = GiveUp(answer,endGamePopUp,popUpText) 
+  })
 
-giveUpButton.addEventListener('click',function(){
-
-endFlag = GiveUp(answer,endGamePopUp,popUpText) 
-})

@@ -2,13 +2,17 @@
 ///     npm install mongoose express body-parser nodemon
 /////=> to run script using nodemon=> npx nodemon index.js
 'use strict'
+let db;
 
-const { model } = require("mongoose");
+//const { model } = require("mongoose");
 
 const PlayerSheet = require('./PlayerSheet.js');
 const express = require('express');
 const mongoose = require('mongoose');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+
+ConnectToDatabase();
+
 async function AddnewPlayer(username, password) {
     const newPlayersheet = new PlayerSheet({
         Username: username,
@@ -27,6 +31,7 @@ async function AddnewPlayer(username, password) {
             console.log(err);
         });
 }
+
 async function UserExits(name) {
     const newPlayersheet = await PlayerSheet.where('Username').equals(name)
    // console.log(newPlayersheet);
@@ -37,37 +42,50 @@ async function UserExits(name) {
         return true
     }
 }
+
 async function ValidLogin(name, password) {
-    const newPlayersheet = await PlayerSheet.where('Username').equals(name).where('Password').equals(password)
-    //console.log(newPlayersheet);
-    if (newPlayersheet.length == 0) {
+    
+    const newPlayersheet = await PlayerSheet.where('Username').equals(name).where('Password').equals(password);
+        console.log('Player result from database');
+   if (newPlayersheet.length == 0) {
+        console.log('Wrong password');
+        //DisconnectFromDatabase();
         return false
     }
-    else {
+
+    else{
+        console.log('Right password');
+        //DisconnectFromDatabase();
         return true
     }
 }
+
 async function UpdatePassword(name, password) {
     const newPlayersheet = await PlayerSheet.updateOne({ 'Username': name }, { $set: { 'Password': password } })
     console.log("Password Updated");
     alert("Password Updated");
 }
+
 async function UpdateMultiplayerWins(name) {
     const newPlayersheet = await newPlayersheet.updateOne({ 'Username': name }, { $inc: { 'MultiplayerWins': 1} })
    console.log('MultiplayerWins updated');
 }
+
 async function UpdateMultiplayerGames(name) {
     const newPlayersheet = await newPlayersheet.updateOne({ 'Username': name }, { $inc: { 'MultiplayerGames': 1} })
    console.log('MultiplayerGames updated');
 }
+
 async function UpdateSingleplayerWins(name) {
     const newPlayersheet =await newPlayersheet.updateOne({ 'Username': name }, { $inc: { 'SingleplayerWins': 1} })
    console.log('SingleplayerWins updated');
 }
+
 async function UpdateSingleplayerGames(name) {
     const newPlayersheet = await PlayerSheet.updateOne({ 'Username': name }, { $inc: { 'SingleplayerGames': 1} })
    console.log('SinglePlayerGames updated');
 }
+
 async function GetPleyerId(name) {
     const PlayerObject = await PlayerSheet.findOne({'Username': name});
     //console.log(PlayerObject._id);
@@ -80,6 +98,7 @@ async function GetPleyerId(name) {
         return false
     }
 }
+
 async function GetSinglePlayerWins(name) {
     const PlayerObject = await PlayerSheet.findOne({'Username': name});
     if (PlayerObject) {
@@ -89,6 +108,7 @@ async function GetSinglePlayerWins(name) {
         return false
     }
 }
+
 async function GetSinglePlayerGames(name) {
     const PlayerObject = await PlayerSheet.findOne({'Username': name});
     if (PlayerObject) {
@@ -98,6 +118,7 @@ async function GetSinglePlayerGames(name) {
         return false
     }
 }
+
 async function GetMultiPlayerWins(name) {
     const PlayerObject = await PlayerSheet.findOne({'Username': name});
     if (PlayerObject) {
@@ -107,6 +128,7 @@ async function GetMultiPlayerWins(name) {
         return false
     }
 }
+
 async function GetMultiplayerGames(name) {
     const PlayerObject = await PlayerSheet.findOne({'Username': name});
     if (PlayerObject) {
@@ -116,6 +138,7 @@ async function GetMultiplayerGames(name) {
         return false
     }
 }
+
 async function ConnectToDatabase() {
     const uri = "mongodb+srv://Software3:Sprinters@cluster0.nuwj9.mongodb.net/Guessle?retryWrites=true&w=majority";
     const app = express()
@@ -136,11 +159,21 @@ async function ConnectToDatabase() {
             "Allow-access-Allow-Origin": '*'
         })
     });
-    mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-        .then(result => app.listen(3000))
-        .catch(err => console.log(err));
+    db = mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }).then((dbConnection)=>{
+        db = dbConnection;
+
+    });
+        //.then(result => app.listen(80))
+       // .catch(err => console.log(err));
+    console.log('Connected done');
+    
+}
+
+async function DisconnectFromDatabase() {
+    db.disconnect();
+    console.log('disconnect successful')
 }
 
 module.exports={AddnewPlayer,UpdatePassword,UserExits,ValidLogin,UpdateSingleplayerGames,
     UpdateSingleplayerWins,UpdateMultiplayerGames,UpdateMultiplayerWins,
-    GetPleyerId,GetSinglePlayerWins,GetSinglePlayerGames,GetMultiPlayerWins,GetMultiplayerGames,ConnectToDatabase}
+    GetPleyerId,GetSinglePlayerWins,GetSinglePlayerGames,GetMultiPlayerWins,GetMultiplayerGames}
