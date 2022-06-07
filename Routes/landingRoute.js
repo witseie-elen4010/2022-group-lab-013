@@ -27,7 +27,6 @@ router.post('/Login',async function (req, res) {
         })
         
 
-
 })
  
 router.get('/SinglePlayer',async function (req, res) {

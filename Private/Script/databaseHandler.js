@@ -15,27 +15,26 @@ var bcrypt = require('bcryptjs');
 ConnectToDatabase();
 
 async function AddnewPlayer(username, password) {
-   await bcrypt.hash(password, 10, function(err, hash) {
-    
-      console.log(hash)
-    
-    const newPlayersheet = new PlayerSheet({
-        Username: username,
-        Password: hash,
-        MultiplayerWins: 0,
-        MultiplayerGames: 0,
-        SingleplayerWins: 0,
-        SingleplayerGames: 0,
-    })
+    await bcrypt.hash(password, 10, function (err, hash) {
 
-    newPlayersheet.save()
+
+        const newPlayersheet = new PlayerSheet({
+            Username: username,
+            Password: hash,
+            MultiplayerWins: 0,
+            MultiplayerGames: 0,
+            SingleplayerWins: 0,
+            SingleplayerGames: 0,
+        })
+
+        newPlayersheet.save()
 
     });
 }
 
 async function UserExits(name) {
     const newPlayersheet = await PlayerSheet.where('Username').equals(name)
-   // console.log(newPlayersheet);
+    // console.log(newPlayersheet);
     if (newPlayersheet.length == 0) {
         return false
     }
@@ -45,20 +44,31 @@ async function UserExits(name) {
 }
 
 async function ValidLogin(name, password) {
-    
-    const newPlayersheet = await PlayerSheet.where('Username').equals(name).where('Password').equals(password);
-        console.log('Player result from database');
-   if (newPlayersheet.length == 0) {
+
+    const newPlayersheet =await PlayerSheet.where('Username').equals(name).where('Password').equals(password);
+    console.log(newPlayersheet);
+    //const result = await newPlayersheet.comparePassword(password);
+
+
+    newPlayersheet.comparePassword(password)(result =>{
+         console.log(result)
+    })
+
+
+
+    console.log(result);
+    console.log(results);
+    if (newPlayersheet.length == 0) {
         console.log('Wrong password');
         //DisconnectFromDatabase();
         return false
     }
 
-    else{
+    else {
         console.log('Right password');
-        bcrypt.compare(password, newPlayersheet.Password).then(function(result) {
-            return result
-        });
+        // bcrypt.compare(password, newPlayersheet.Password).then(function(result) {
+        return true
+        // });
         //DisconnectFromDatabase();
     }
 }
@@ -70,27 +80,27 @@ async function UpdatePassword(name, password) {
 }
 
 async function UpdateMultiplayerWins(name) {
-    const newPlayersheet = await newPlayersheet.updateOne({ 'Username': name }, { $inc: { 'MultiplayerWins': 1} })
-   console.log('MultiplayerWins updated');
+    const newPlayersheet = await newPlayersheet.updateOne({ 'Username': name }, { $inc: { 'MultiplayerWins': 1 } })
+    console.log('MultiplayerWins updated');
 }
 
 async function UpdateMultiplayerGames(name) {
-    const newPlayersheet = await newPlayersheet.updateOne({ 'Username': name }, { $inc: { 'MultiplayerGames': 1} })
-   console.log('MultiplayerGames updated');
+    const newPlayersheet = await newPlayersheet.updateOne({ 'Username': name }, { $inc: { 'MultiplayerGames': 1 } })
+    console.log('MultiplayerGames updated');
 }
 
 async function UpdateSingleplayerWins(name) {
-    const newPlayersheet =await newPlayersheet.updateOne({ 'Username': name }, { $inc: { 'SingleplayerWins': 1} })
-   console.log('SingleplayerWins updated');
+    const newPlayersheet = await newPlayersheet.updateOne({ 'Username': name }, { $inc: { 'SingleplayerWins': 1 } })
+    console.log('SingleplayerWins updated');
 }
 
 async function UpdateSingleplayerGames(name) {
-    const newPlayersheet = await PlayerSheet.updateOne({ 'Username': name }, { $inc: { 'SingleplayerGames': 1} })
-   console.log('SinglePlayerGames updated');
+    const newPlayersheet = await PlayerSheet.updateOne({ 'Username': name }, { $inc: { 'SingleplayerGames': 1 } })
+    console.log('SinglePlayerGames updated');
 }
 
 async function GetPleyerId(name) {
-    const PlayerObject = await PlayerSheet.findOne({'Username': name});
+    const PlayerObject = await PlayerSheet.findOne({ 'Username': name });
     //console.log(PlayerObject._id);
     if (PlayerObject) {
         console.log('Id of ' + name + ' = ' + PlayerObject._id);
@@ -103,7 +113,7 @@ async function GetPleyerId(name) {
 }
 
 async function GetSinglePlayerWins(name) {
-    const PlayerObject = await PlayerSheet.findOne({'Username': name});
+    const PlayerObject = await PlayerSheet.findOne({ 'Username': name });
     if (PlayerObject) {
         return PlayerObject.SingleplayerWins;
     }
@@ -113,7 +123,7 @@ async function GetSinglePlayerWins(name) {
 }
 
 async function GetSinglePlayerGames(name) {
-    const PlayerObject = await PlayerSheet.findOne({'Username': name});
+    const PlayerObject = await PlayerSheet.findOne({ 'Username': name });
     if (PlayerObject) {
         return PlayerObject.SingleplayerGames;
     }
@@ -123,7 +133,7 @@ async function GetSinglePlayerGames(name) {
 }
 
 async function GetMultiPlayerWins(name) {
-    const PlayerObject = await PlayerSheet.findOne({'Username': name});
+    const PlayerObject = await PlayerSheet.findOne({ 'Username': name });
     if (PlayerObject) {
         return PlayerObject.MultiplayerWins;
     }
@@ -133,7 +143,7 @@ async function GetMultiPlayerWins(name) {
 }
 
 async function GetMultiplayerGames(name) {
-    const PlayerObject = await PlayerSheet.findOne({'Username': name});
+    const PlayerObject = await PlayerSheet.findOne({ 'Username': name });
     if (PlayerObject) {
         return PlayerObject.MultiplayerGames;
     }
@@ -145,7 +155,7 @@ async function GetMultiplayerGames(name) {
 async function ConnectToDatabase() {
     const uri = "mongodb+srv://Software3:Sprinters@cluster0.nuwj9.mongodb.net/Guessle?retryWrites=true&w=majority";
     const app = express()
-    
+
     app.use(bodyParser.json())
     app.use(express.static('public'))
     app.use(bodyParser.urlencoded({
@@ -162,14 +172,14 @@ async function ConnectToDatabase() {
             "Allow-access-Allow-Origin": '*'
         })
     });
-    db = mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }).then((dbConnection)=>{
+    db = mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }).then((dbConnection) => {
         db = dbConnection;
 
     });
-        //.then(result => app.listen(80))
-       // .catch(err => console.log(err));
+    //.then(result => app.listen(80))
+    // .catch(err => console.log(err));
     console.log('Connected done');
-    
+
 }
 
 async function DisconnectFromDatabase() {
@@ -177,8 +187,9 @@ async function DisconnectFromDatabase() {
     console.log('disconnect successful')
 }
 
-AddnewPlayer('There','There')
 
-module.exports={AddnewPlayer,UpdatePassword,UserExits,ValidLogin,UpdateSingleplayerGames,
-    UpdateSingleplayerWins,UpdateMultiplayerGames,UpdateMultiplayerWins,
-    GetPleyerId,GetSinglePlayerWins,GetSinglePlayerGames,GetMultiPlayerWins,GetMultiplayerGames}
+module.exports = {
+    AddnewPlayer, UpdatePassword, UserExits, ValidLogin, UpdateSingleplayerGames,
+    UpdateSingleplayerWins, UpdateMultiplayerGames, UpdateMultiplayerWins,
+    GetPleyerId, GetSinglePlayerWins, GetSinglePlayerGames, GetMultiPlayerWins, GetMultiplayerGames
+}
