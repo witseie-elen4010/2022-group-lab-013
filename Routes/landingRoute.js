@@ -2,6 +2,8 @@ const path = require('path')
 const express = require('express')
 const dbFunctions = require('../Private/Script/databaseHandler')
 const router = express.Router();
+
+let GAMEID;
  
 router.get('/',(req,res) =>{
     res.render('users/loginPage');
@@ -39,9 +41,7 @@ router.get('/signupPage',async function (req, res) {
 })
 
 router.get('/multiplayerChooseAWord',async function (req, res) {
-    let gameID = req.body.gameID;
-    console.log('Recieved gameID')
-    res.render('users/multiplayerChooseAWord',  {numberOfPlayers: 3}, gameID);
+    res.render('users/multiplayerChooseAWord',  {gameID: GAMEID, numberOfPlayers: 3});
 })
 
 router.post('/multiplayerSetUpGame',async function (req, res) {
@@ -61,8 +61,9 @@ router.post('/multiplayerSetUpGame',async function (req, res) {
         await dbFunctions.UpdateGameGuessWord(gameID, userGuess);
         console.log("Word added");
     }
+    GAMEID = String(gameID);
 
-    res.json(gameID)
+    res.json(GAMEID);
 })
 
 router.get('/multiplayerSingleWord',async function (req, res) {

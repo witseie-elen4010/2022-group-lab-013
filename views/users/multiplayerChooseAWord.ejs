@@ -14,10 +14,11 @@
     </head>
     <body>
         
-        <p id="numberOfPlayers" hidden><%= numberOfPlayers %></p>                   
-        <h1> Guessle Game </h1>
+        <h1> Guessle Game  </h1>
+        <p id="gameID" hidden><%= gameID %></p> 
+        <h1> Game ID: <%= gameID %>  </h1>
         <form class = "detail-box" id = "form_multipayer_boards">
-        <!-- display board based on number of players -->
+        <p id="numberOfPlayers" hidden><%= numberOfPlayers %></p> 
         <% for (var i =1; i <= numberOfPlayers;   i++ ) { %>                            
             <br/>
             <%- include("../../Public/partials/board.ejs", {i: i}) %> 
@@ -26,5 +27,5 @@
         </form>
 
     </body>
-    <!--<script src = '/Public/Script/multiplayerCooseWordSetup.js'></script> -->
+    <script src = '/Public/Script/multiplayerCooseWordSetup.js'></script>
 </html>
