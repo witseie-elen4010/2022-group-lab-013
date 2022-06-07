@@ -1,5 +1,9 @@
 const loginButton = document.getElementById('LoginSubmit')
 
+function ToViewLogs(){
+  document.getElementById("log").action = "GameLog"          //navigate to multiplayerSingleWord when button is clicked
+  document.getElementById("log").submit();
+}
 loginButton.addEventListener('click', function(){
     //let userName = "Guest";
     let userName = document.getElementById('playerUsername').value
