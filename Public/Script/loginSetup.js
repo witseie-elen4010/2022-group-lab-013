@@ -1,11 +1,19 @@
 const loginButton = document.getElementById('LoginSubmit')
 
+
+function ToViewLogs(){
+  document.getElementById("log").action = "GameLog"          //navigate to multiplayerSingleWord when button is clicked
+  document.getElementById("log").submit();
+}
+loginButton.addEventListener('click', function(){
+
 function ToSignUp(){
   document.getElementById("sign").action = "SignUpPage"          //navigate to multiplayerSingleWord when button is clicked
   document.getElementById("sign").submit();
 }
 
 loginButton.addEventListener('click', async function(){
+
     //let userName = "Guest";
     let userName = await document.getElementById('playerUsername').value
     let userPass = await document.getElementById('playerPassword').value

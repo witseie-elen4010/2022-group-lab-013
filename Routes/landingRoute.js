@@ -65,6 +65,19 @@ router.get('/multiplayerSingleWord',async function (req, res) {
     res.render('users/multiplayerSingleWord',  {numberOfPlayers: 3});
 })
 
+router.get('/GameLog', async function(req,res){
+    res.render('users/gameLog')
+})
+
+router.post('/Log', async function(req,res) {
+    let GID = req.body.gameId;
+
+    //dbFunctions.GetGuessWords(GID)
+    //.then(game =>{
+        res.json('no log available')
+   // })
+})
+
 module.exports = router;
 
 // gameRouter.get('/multiplayerSingleWord', function (req, res) {
