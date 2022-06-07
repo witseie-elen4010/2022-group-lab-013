@@ -27,16 +27,16 @@ async function AddnewPlayer(username, password) {
         SingleplayerGames: 0,
     })
     await newPlayersheet.save()
-        .then(res => {
-             console.log(res);
+        //.then(res => {
+             //console.log(res);
             //res.send(result);
-        })
+        //})
         .catch(err => {
             console.log(err);
         });
 }
 
-async function UserExits(name) {
+async function UserExists(name) {
     const newPlayersheet = await PlayerSheet.where('Username').equals(name)
    // console.log(newPlayersheet);
     if (newPlayersheet.length == 0) {
@@ -444,7 +444,7 @@ main();
 */
 ConnectToDatabase();
 
-module.exports={AddnewPlayer,UpdatePassword,UserExits,ValidLogin,
+module.exports={AddnewPlayer,UpdatePassword,UserExits: UserExists,ValidLogin,
     UpdateSingleplayerGames,UpdateSingleplayerWins,UpdateMultiplayerGames,UpdateMultiplayerWins,
     GetPleyerId: GetPlayerId,GetSinglePlayerWins,GetSinglePlayerGames,GetMultiPlayerWins,GetMultiplayerGames,
     AddnewGame, UpdatePlayerID, UpdateGameGuessWord, UpdateGameStatus,UpdateGameWinner,
