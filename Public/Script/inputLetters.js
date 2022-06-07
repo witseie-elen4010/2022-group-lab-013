@@ -60,7 +60,7 @@ let guessleKeyboard = new Keyboard({
 /////////////////////////////////////////////////////////////////////////////
 
 
-function letterInput(value){
+async function letterInput(value){
    if((value >= "A" && value<= "Z" && value.length == 1) && columnNo<5 && currentTurn <6 && endFlag === false){
      columnNo++
      currentletterBlock=value.toUpperCase()
@@ -80,7 +80,11 @@ function letterInput(value){
      }
  
      let boxCoulourCorrectnessArray = UICorrectnessFeedback(guessesWord);
+
+     
+
      if(IsWord(guessesWord)){
+        await UpdateDatabase(guessesWord);
          for (let j = 0; j < 5; j++) {
              changeBoxColour(boxCoulourCorrectnessArray[j],rowNo,j)
          }
@@ -99,6 +103,23 @@ function letterInput(value){
      }            
    }
  }
+
+ async function UpdateDatabase(guessedWord){
+  await fetch('/multiplayerGuessedWordUpdate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        GuessedWord: guessedWord
+      })
+      })
+      .catch(err =>{
+        console.error(err);
+      })
+}
+
 
  function inputLetter(event){
   var keyValue = event.key

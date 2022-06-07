@@ -17,13 +17,13 @@
         <h1> Guessle Game  </h1>
         <p id="gameID" hidden><%= gameID %></p> 
         <h1> Game ID: <%= gameID %>  </h1>
-        <form class = "detail-box" id = "form_multipayer_boards">
-        <p id="numberOfPlayers" hidden><%= numberOfPlayers %></p> 
-        <% for (var i =1; i <= numberOfPlayers;   i++ ) { %>                            
-            <br/>
-            <%- include("../../Public/partials/board.ejs", {i: i}) %> 
-            <br/>
-            <% } %>
+        <form class = "detail-box" id = "form_multipayer_boards" method="POST"  action="/multiplayerGuessedWordUpdate">
+            <p id="numberOfPlayers" hidden><%= numberOfPlayers %></p> 
+            <% for (var i =1; i <= numberOfPlayers;   i++ ) { %>                            
+                <br/>
+                <%- include("../../Public/partials/board.ejs", {i: i}) %> 
+                <br/>
+                <% } %>
         </form>
 
     </body>

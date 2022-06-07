@@ -4,6 +4,9 @@ const dbFunctions = require('../Private/Script/databaseHandler')
 const router = express.Router();
 
 let GAMEID;
+let USERID;
+let INPUTWORD = '';
+let INPUTCOUNT = 0;
  
 router.get('/',(req,res) =>{
     res.render('users/loginPage');
@@ -13,6 +16,7 @@ router.post('/Login',async function (req, res) {
  
     let userId = req.body.userName;
     let userPassword = req.body.userPassword;
+    USERID = userId
     
     await dbFunctions.ValidLogin(userId, userPassword)
     .then((loginResult) => {
@@ -50,11 +54,15 @@ router.post('/multiplayerSetUpGame',async function (req, res) {
     let gameID = req.body.gameID;
     if(gameID == ''){
         let player1ID = await dbFunctions.GetPleyerId(userId);
+        USERID = player1ID;
         console.log(player1ID);
         gameID = await dbFunctions.AddnewGame(2, player1ID, userGuess);
         console.log("Game added");
+        let movesinit = await dbFunctions.InitMoves(gameID);
+        console.log("Moves added");
     }else{
         let player2ID = await dbFunctions.GetPleyerId(userId);
+        USERID = player2ID;
         console.log(player2ID);
         await dbFunctions.UpdatePlayerID(gameID, player2ID);
         console.log("Player added");
@@ -63,6 +71,50 @@ router.post('/multiplayerSetUpGame',async function (req, res) {
     }
     GAMEID = String(gameID);
 
+    res.json(GAMEID);
+})
+router.post('/multiplayerGuessedWordUpdate',async function (req, res) {
+    let INPUTCOUNTs = req.body.GuessedWord;
+
+    //INPUTCOUNT = String(INPUTCOUNT);
+    console.log(INPUTCOUNTs);
+    INPUTWORD = INPUTCOUNTs.join('');
+    console.log(INPUTWORD);
+
+        let PlayerNumber;
+        let playersPlaying = await dbFunctions.GetPlayerIDs(GAMEID);
+        console.log(String(playersPlaying));
+        console.log(String(USERID));
+        console.log('Tested');
+        for(let i= 0; i < playersPlaying.length; i++){
+            if(String(USERID) == String(playersPlaying)){
+                PlayerNumber = i;
+            }
+        }
+        //PlayerNumber = 0;
+        console.log(PlayerNumber);
+        switch(PlayerNumber) {
+            case 0:
+                await dbFunctions.UpdatePlayer1(GAMEID, INPUTWORD);
+            break;
+            case 1:
+                await dbFunctions.UpdatePlayer2(GAMEID, INPUTWORD);
+            break;
+            case 2:
+                await dbFunctions.UpdatePlayer3(GAMEID, INPUTWORD);
+            break;
+            case 3:
+                await dbFunctions.UpdatePlayer4(GAMEID, INPUTWORD);
+            break;
+            case 4:
+                await dbFunctions.UpdatePlayer5(GAMEID, INPUTWORD);
+            break;
+            case 5:
+                await dbFunctions.UpdatePlayer6(GAMEID, INPUTWORD);
+            break;
+        }
+        
+    
     res.json(GAMEID);
 })
 
